@@ -1,6 +1,9 @@
 package businessLogic;
 
-public class Button implements Point, Pressable{
+import Abstract.Point;
+import Abstract.Pressable;
+
+public class Button implements Point, Pressable {
 
     private int row;
     private int column;

@@ -1,6 +1,6 @@
 package GUI_WindowsApp;
 
-import businessLogic.Point;
+import Abstract.Point;
 import businessLogic.Window;
 
 import javax.swing.*;

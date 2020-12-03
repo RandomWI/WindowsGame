@@ -1,26 +1,18 @@
 package GUI_WindowsApp;
 
-import businessLogic.Point;
+import Abstract.VisualButton;
 import businessLogic.Button;
-import businessLogic.Pressable;
 
-import javax.swing.*;
 import java.awt.*;
 
 
 /**
- * Az osztály a JButton osztály kiterjesztése.
+ * Az osztály a VisualButton absztrakt osztály kiterjesztése.
  * A GWindow osztály építőeleme.
+ * @see VisualButton
  */
-public class GWindowButton extends JButton implements Point, Pressable {
+public class GWindowButton extends VisualButton {
 
-    private int row;
-    private int column;
-
-    /**
-     * A gomb álapotát jelzi, ha true a gomb be van nyomva, ha false a gomb nincs benyomva.
-     */
-    private boolean pressed = false;
 
     /**
      * Létrehoz egy GWindowButton osztály egy példányát.
@@ -37,52 +29,6 @@ public class GWindowButton extends JButton implements Point, Pressable {
             case SMALL -> this.setPreferredSize(new Dimension(12, 12));
         }
 
-    }
-
-
-    @Override
-    public boolean isPressed() {
-        return pressed;
-    }
-
-    @Override
-    public void setPressed(boolean isPressed) {
-        this.pressed = isPressed;
-    }
-
-    @Override
-    public void buttonPress() {
-        this.pressed = !pressed;
-    }
-
-    public boolean getPressed(){
-        return pressed;
-    }
-
-
-    @Override
-    public void setRow(int row) {
-        this.row = row;
-    }
-
-    @Override
-    public void setColumn(int column) {
-        this.column = column;
-    }
-
-    @Override
-    public int getRow() {
-        return row;
-    }
-
-    @Override
-    public int getColumn() {
-        return column;
-    }
-
-    public void setCoordinate(int row, int column){
-        this.row = row;
-        this.column = column;
     }
 
     public Button convertToButton(){

@@ -1,8 +1,10 @@
 package businessLogic;
 
+import Abstract.Point;
+
 import java.util.Vector;
 
-public class Window implements Point{
+public class Window implements Point {
 
     private int row;
     private int column;
