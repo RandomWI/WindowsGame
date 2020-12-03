@@ -18,7 +18,6 @@ public final class Converter {
             modified.addButton(convertToButton(visualW.getButton(i)));
         }
 
-
         return modified;
     }
 
@@ -33,6 +32,5 @@ public final class Converter {
 
         return modified;
     }
-
 
 }

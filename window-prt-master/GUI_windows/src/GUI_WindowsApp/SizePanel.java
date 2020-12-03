@@ -15,7 +15,7 @@ public class SizePanel extends JPanel {
     private JTextField textSize;
     protected JButton buttonResize;
 
-    private final GameFrame frame;
+    private GameFrame frame;
 
     public SizePanel(GameFrame frame){
         super(new GridBagLayout());
@@ -32,7 +32,7 @@ public class SizePanel extends JPanel {
 
     }
 
-    private void setSizePanel(){
+    public void setSizePanel(){
         labelSize = new JLabel("Adja meg a méretet (n*n): ");
         textSize = new JTextField(10);
         buttonResize = new JButton("Átméretezés");
@@ -50,6 +50,10 @@ public class SizePanel extends JPanel {
 
         constraints.gridx = 2;
         add(buttonResize, constraints);
+    }
+
+    public void joinFrame(GameFrame frame){
+        this.frame = frame;
     }
 
     /**

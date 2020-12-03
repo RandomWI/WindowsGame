@@ -26,8 +26,8 @@ public class Button implements Point, Pressable {
     }
 
     @Override
-    public void setPressed(boolean isPressed) {
-        this.pressed = isPressed;
+    public void setPressed(boolean press) {
+        this.pressed = press;
     }
 
     @Override
