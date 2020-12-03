@@ -113,7 +113,7 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer {
             }
             else{
                 button.buttonPress();
-                button.setBackground(null);
+                button.setBackground(Color.WHITE);
                 activeButton--;
                 //System.out.println(activeButton);
             }
@@ -121,7 +121,7 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer {
         else{
             if(button.isPressed()){
                 button.buttonPress();
-                button.setBackground(null);
+                button.setBackground(Color.WHITE);
                 activeButton--;
                 //System.out.println(activeButton);
             }
