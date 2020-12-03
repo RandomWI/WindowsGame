@@ -1,24 +1,19 @@
 package GUI_WindowsApp;
 
-import Abstract.VisualButton;
+import Abstract.Point;
+import Abstract.Pressable;
 
+import javax.swing.*;
 import java.awt.*;
 
 
-/**
- * Az osztály a VisualButton absztrakt osztály kiterjesztése.
- * A GWindow osztály építőeleme.
- * @see VisualButton
- */
-public class GWindowButton extends VisualButton {
+public class GWindowButton extends JButton implements Point, Pressable {
 
+    private int row;
+    private int column;
 
-    /**
-     * Létrehoz egy GWindowButton osztály egy példányát.
-     * A gomobok méretét az átadott size paraméter alapján választja meg.
-     * @param size
-     * @see WindowSize
-     */
+    private boolean pressed = false;
+
     public GWindowButton(WindowSize size){
         super();
 
@@ -28,6 +23,50 @@ public class GWindowButton extends VisualButton {
             case SMALL -> this.setPreferredSize(new Dimension(12, 12));
         }
 
+    }
+
+    //A Pressable interfész implementálása.
+    @Override
+    public boolean isPressed() {
+        return pressed;
+    }
+
+    @Override
+    public void setPressed(boolean isPressed) {
+        this.pressed = isPressed;
+    }
+
+    @Override
+    public void buttonPress() {
+        this.pressed = !pressed;
+    }
+
+
+
+    //A Point interfész implementálása.
+    @Override
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    @Override
+    public void setColumn(int column) {
+        this.column = column;
+    }
+
+    @Override
+    public int getRow() {
+        return row;
+    }
+
+    @Override
+    public int getColumn() {
+        return column;
+    }
+
+    public void setCoordinate(int row, int column){
+        this.row = row;
+        this.column = column;
     }
 
 }

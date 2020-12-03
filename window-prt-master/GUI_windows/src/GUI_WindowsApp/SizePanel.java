@@ -15,7 +15,7 @@ public class SizePanel extends JPanel {
     private JTextField textSize;
     protected JButton buttonResize;
 
-    private GameFrame frame;
+    private final GameFrame frame;
 
     public SizePanel(GameFrame frame){
         super(new GridBagLayout());

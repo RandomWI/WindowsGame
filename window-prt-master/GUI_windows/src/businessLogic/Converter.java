@@ -1,13 +1,11 @@
 package businessLogic;
 
-import Abstract.BasicButton;
-import Abstract.BasicButtonContainer;
-import Abstract.VisualButton;
-import Abstract.VisualWindow;
+import GUI_WindowsApp.GWindow;
+import GUI_WindowsApp.GWindowButton;
 
 public final class Converter {
 
-    public static Window convertToWindow(VisualWindow visualW){
+    public static Window convertToWindow(GWindow visualW){
         Window modified = new Window();
 
         modified.setRow(visualW.getRow());
@@ -25,8 +23,8 @@ public final class Converter {
     }
 
 
-    public static BasicButton convertToButton(VisualButton visualButton){
-        BasicButton modified = new BasicButton();
+    public static Button convertToButton(GWindowButton visualButton){
+        Button modified = new Button();
 
         modified.setRow(visualButton.getRow());
         modified.setColumn(visualButton.getColumn());

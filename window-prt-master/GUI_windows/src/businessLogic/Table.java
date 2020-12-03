@@ -4,7 +4,7 @@ import java.util.Vector;
 
 public class Table {
 
-    private Vector<Window> windows;
+    private final Vector<Window> windows;
 
     public Table(){
         windows = new Vector<>();

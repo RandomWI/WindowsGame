@@ -1,12 +1,14 @@
 package Abstract;
 
+import GUI_WindowsApp.GWindowButton;
+
 import java.util.Vector;
 
 public interface VisualButtonContainer {
 
-    public void setButtonContainer();
-    public void addButton(VisualButton button);
-    public VisualButton getButton(int index);
-    public int getContainerSize();
+    void setButtonContainer();
+    void addButton(GWindowButton button);
+    GWindowButton getButton(int index);
+    int getContainerSize();
 
 }

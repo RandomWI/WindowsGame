@@ -1,9 +1,11 @@
 package GUI_WindowsApp;
 
 
-import Abstract.VisualWindow;
+import Abstract.Point;
+import Abstract.VisualButtonContainer;
 
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +15,12 @@ import java.util.Vector;
  * Egy GWindowButton osztályból példányosított objektum négy GWindowButton objketumot foglal magába.
  * A JPanel osztály kiterjesztése.
  */
-public class GWindow extends VisualWindow {
+public class GWindow extends JPanel implements Point, VisualButtonContainer {
+
+    private int row;
+    private int column;
+
+    protected Vector<GWindowButton> buttonContainer;
 
     private GWindowButton buttonOne;
     private GWindowButton buttonTwo;
@@ -24,7 +31,7 @@ public class GWindow extends VisualWindow {
 
 
     public GWindow(WindowSize size){
-        super();
+        super(new GridBagLayout());
 
         setButtonsSize(size);
         setButtonsPosition();
@@ -121,6 +128,34 @@ public class GWindow extends VisualWindow {
         }
     }
 
+
+    //A Point interfész implementálása.
+    @Override
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    @Override
+    public void setColumn(int column) {
+        this.column = column;
+    }
+
+    @Override
+    public int getRow() {
+        return row;
+    }
+
+    @Override
+    public int getColumn() {
+        return column;
+    }
+
+    public void setCoordinate(int row, int column){
+        this.row = row;
+        this.column = column;
+    }
+
+    //A VisualButtonContainer implementálása.
     @Override
     public void setButtonContainer(){
         buttonContainer = new Vector<>(4);
@@ -129,6 +164,21 @@ public class GWindow extends VisualWindow {
         addButton(buttonTwo);
         addButton(buttonThree);
         addButton(buttonFour);
+    }
+
+    @Override
+    public void addButton(GWindowButton button){
+        buttonContainer.add(button);
+    }
+
+    @Override
+    public GWindowButton getButton(int index){
+        return buttonContainer.get(index);
+    }
+
+    @Override
+    public int getContainerSize(){
+        return buttonContainer.size();
     }
 
 

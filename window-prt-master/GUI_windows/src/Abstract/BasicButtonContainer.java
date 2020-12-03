@@ -1,10 +1,12 @@
 package Abstract;
 
+import businessLogic.Button;
+
 public interface BasicButtonContainer {
 
-    public void setButtonContainer(int size);
-    public void addButton(BasicButton button);
-    public BasicButton getButton(int index);
-    public int getContainerSize();
+    void setButtonContainer(int size);
+    void addButton(Button button);
+    Button getButton(int index);
+    int getContainerSize();
 
 }
