@@ -1,13 +1,11 @@
 package Abstract;
 
-import javax.swing.*;
-
-public abstract class VisualButton extends JButton implements Point, Pressable{
+public class BasicButton implements Point, Pressable{
 
     private int row;
     private int column;
 
-    private boolean pressed = false;
+    private boolean pressed;
 
 
     //A Pressable interfész implementálása.
@@ -26,25 +24,16 @@ public abstract class VisualButton extends JButton implements Point, Pressable{
         this.pressed = !pressed;
     }
 
-    public boolean getPressed(){
-        return pressed;
-    }
-
 
     //A Point interfész implementálása.
     @Override
-    public void setRow(int row) {
-        this.row = row;
-    }
-
-    @Override
-    public void setColumn(int column) {
-        this.column = column;
-    }
-
-    @Override
     public int getRow() {
         return row;
+    }
+
+    @Override
+    public void setRow(int row) {
+        this.row = row;
     }
 
     @Override
@@ -52,8 +41,8 @@ public abstract class VisualButton extends JButton implements Point, Pressable{
         return column;
     }
 
-    public void setCoordinate(int row, int column){
-        this.row = row;
+    @Override
+    public void setColumn(int column) {
         this.column = column;
     }
 

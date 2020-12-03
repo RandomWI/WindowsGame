@@ -72,7 +72,7 @@ public class PlayGround extends JPanel {
             constraints.gridx = gW.getColumn();
             constraints.gridy = gW.getRow();
             add(gW, constraints);
-            setTable(gW.convertToWindow());
+            //setTable(gW.convertToWindow());
         }
 
     }
@@ -98,7 +98,6 @@ public class PlayGround extends JPanel {
             constraints.gridy += 1;
         }
     }
-
      */
 
     public void joinTable(Table table){

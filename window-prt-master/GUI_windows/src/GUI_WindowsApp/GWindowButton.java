@@ -31,7 +31,7 @@ public class GWindowButton extends VisualButton {
 
     }
 
-    public Button convertToButton(){
+    /*public Button convertToButton(){
         Button modified = new Button();
 
         modified.setRow(getRow());
@@ -41,5 +41,7 @@ public class GWindowButton extends VisualButton {
 
         return modified;
     }
+     */
+
 
 }

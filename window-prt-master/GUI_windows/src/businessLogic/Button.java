@@ -1,55 +1,17 @@
 package businessLogic;
 
-import Abstract.Point;
-import Abstract.Pressable;
+import Abstract.BasicButton;
 
-public class Button implements Point, Pressable {
+public class Button extends BasicButton {
 
-    private int row;
-    private int column;
-    private boolean pressed;
 
     public Button(){
-
+        super();
     }
+
     public Button(int row, int column){
-        this.row = row;
-        this.column = column;
+        setRow(row);
+        setColumn(column);
     }
 
-    @Override
-    public int getRow() {
-        return row;
-    }
-
-    @Override
-    public void setRow(int row) {
-        this.row = row;
-    }
-
-    @Override
-    public int getColumn() {
-        return column;
-    }
-
-    @Override
-    public void setColumn(int column) {
-        this.column = column;
-    }
-
-
-    @Override
-    public boolean isPressed() {
-        return pressed;
-    }
-
-    @Override
-    public void setPressed(boolean isPressed) {
-        this.pressed = isPressed;
-    }
-
-    @Override
-    public void buttonPress() {
-        this.pressed = !pressed;
-    }
 }

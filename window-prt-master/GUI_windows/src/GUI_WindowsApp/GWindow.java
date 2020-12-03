@@ -149,7 +149,7 @@ public class GWindow extends JPanel implements Point {
         this.column = column;
     }
 
-    public  Window convertToWindow(){
+    /*public  Window convertToWindow(){
         Window modified = new Window();
 
         modified.setRow(getRow());
@@ -161,7 +161,7 @@ public class GWindow extends JPanel implements Point {
         modified.addButton((buttonFour.convertToButton()));
 
         return modified;
-    }
+    }*/
 
 }
 
