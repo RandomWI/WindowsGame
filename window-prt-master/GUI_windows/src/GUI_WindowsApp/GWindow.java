@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import java.util.Vector;
 
 /**
- * Egy GWindowButton osztályból példányosított objektum négy GWindowButton objketumot foglal magába.
+ * Egy GWindow osztályból példányosított objektum négy GWindowButton objketumot foglal magába.
  * A JPanel osztály kiterjesztése.
  */
 public class GWindow extends JPanel implements Point, VisualButtonContainer {
@@ -33,7 +33,7 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer {
     public GWindow(WindowSize size){
         super(new GridBagLayout());
 
-        setButtonsSize(size);
+        setButtonSize(size);
         setButtonsPosition();
 
 
@@ -67,7 +67,7 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer {
 
     }
 
-    public void setButtonsSize(WindowSize size){
+    public void setButtonSize(WindowSize size){
         buttonOne = new GWindowButton(size);
         buttonTwo = new GWindowButton(size);
         buttonThree = new GWindowButton(size);
@@ -102,6 +102,7 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer {
         this.add(buttonFour, constraints);
     }
 
+    //A gombnyomások hatását kezeli.
     public void ButtonAction(GWindowButton button){
 
         if(activeButton < 2){
@@ -180,22 +181,6 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer {
     public int getContainerSize(){
         return buttonContainer.size();
     }
-
-
-
-    /*public  Window convertToWindow(){
-        Window modified = new Window();
-
-        modified.setRow(getRow());
-        modified.setColumn(getColumn());
-
-        modified.addButton(buttonOne.convertToButton());
-        modified.addButton(buttonTwo.convertToButton());
-        modified.addButton(buttonThree.convertToButton());
-        modified.addButton((buttonFour.convertToButton()));
-
-        return modified;
-    }*/
 
 }
 
