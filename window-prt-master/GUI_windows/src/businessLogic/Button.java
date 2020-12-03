@@ -1,10 +1,10 @@
 package businessLogic;
 
-public class Button implements Point{
+public class Button implements Point, Pressable{
 
     private int row;
     private int column;
-    private boolean isActive;
+    private boolean pressed;
 
     public Button(){
 
@@ -34,11 +34,19 @@ public class Button implements Point{
         this.column = column;
     }
 
-    public boolean isActive() {
-        return isActive;
+
+    @Override
+    public boolean isPressed() {
+        return pressed;
     }
 
-    public void setActive(boolean active) {
-        isActive = active;
+    @Override
+    public void setPressed(boolean isPressed) {
+        this.pressed = isPressed;
+    }
+
+    @Override
+    public void buttonPress() {
+        this.pressed = !pressed;
     }
 }

@@ -2,6 +2,7 @@ package GUI_WindowsApp;
 
 import businessLogic.Point;
 import businessLogic.Button;
+import businessLogic.Pressable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +12,7 @@ import java.awt.*;
  * Az osztály a JButton osztály kiterjesztése.
  * A GWindow osztály építőeleme.
  */
-public class GWindowButton extends JButton implements Point{
+public class GWindowButton extends JButton implements Point, Pressable {
 
     private int row;
     private int column;
@@ -39,13 +40,19 @@ public class GWindowButton extends JButton implements Point{
     }
 
 
-    public void buttonPress(){
-        if(!pressed){
-            pressed = !pressed;
-        }
-        else{
-            pressed = !pressed;
-        }
+    @Override
+    public boolean isPressed() {
+        return pressed;
+    }
+
+    @Override
+    public void setPressed(boolean isPressed) {
+        this.pressed = isPressed;
+    }
+
+    @Override
+    public void buttonPress() {
+        this.pressed = !pressed;
     }
 
     public boolean getPressed(){
@@ -84,7 +91,7 @@ public class GWindowButton extends JButton implements Point{
         modified.setRow(getRow());
         modified.setColumn(getColumn());
 
-        modified.setActive(getPressed());
+        modified.setPressed(getPressed());
 
         return modified;
     }
