@@ -8,4 +8,5 @@ public interface VisualButtonContainer {
     public void addButton(VisualButton button);
     public VisualButton getButton(int index);
     public int getContainerSize();
+
 }

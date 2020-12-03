@@ -24,6 +24,7 @@ public final class Converter {
         return modified;
     }
 
+
     public static BasicButton convertToButton(VisualButton visualButton){
         BasicButton modified = new BasicButton();
 

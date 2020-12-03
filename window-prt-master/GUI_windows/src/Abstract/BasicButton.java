@@ -7,6 +7,10 @@ public class BasicButton implements Point, Pressable{
 
     private boolean pressed;
 
+    public BasicButton(){
+        super();
+    }
+
 
     //A Pressable interfész implementálása.
     @Override

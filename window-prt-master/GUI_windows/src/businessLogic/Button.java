@@ -1,8 +1,10 @@
 package businessLogic;
 
 import Abstract.BasicButton;
+import Abstract.Point;
+import Abstract.Pressable;
 
-public class Button extends BasicButton {
+public class Button extends BasicButton{
 
 
     public Button(){
@@ -13,5 +15,7 @@ public class Button extends BasicButton {
         setRow(row);
         setColumn(column);
     }
+
+
 
 }
