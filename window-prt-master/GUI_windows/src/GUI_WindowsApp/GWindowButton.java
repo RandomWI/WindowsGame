@@ -16,6 +16,7 @@ public class GWindowButton extends JButton implements Point, Pressable {
 
     public GWindowButton(WindowSize size){
         super();
+        setBackground(Color.WHITE);
 
         switch (size){
             case LARGE -> this.setPreferredSize(new Dimension(42, 42));
