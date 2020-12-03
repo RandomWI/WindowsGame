@@ -22,6 +22,7 @@ public class PlayGround extends JPanel {
 
     public PlayGround(int size, Table table){
         super(new GridBagLayout());
+        setBackground(Color.BLACK);
 
         joinTable(table);
 
