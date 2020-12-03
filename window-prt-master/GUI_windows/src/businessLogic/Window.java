@@ -1,16 +1,19 @@
 package businessLogic;
 
+import Abstract.BasicButton;
+import Abstract.BasicButtonContainer;
 import Abstract.Point;
 
 import java.util.Vector;
 
-public class Window implements Point {
+public class Window implements Point, BasicButtonContainer {
 
     private int row;
     private int column;
 
-    private Vector<Button> buttons = new Vector<>(4);
+    private Vector<BasicButton> buttonContainer;
 
+    //A Point interfész implementálása.
     @Override
     public void setRow(int row) {
         this.row = row;
@@ -31,12 +34,25 @@ public class Window implements Point {
         return column;
     }
 
-    public void addButton(Button button){
-        buttons.add(button);
+
+    //A BasicButtonContainer interfész implementálása.
+    @Override
+    public void setButtonContainer(int size) {
+        buttonContainer = new Vector<>(size);
     }
 
-    public Button getButton(int index){
-        return buttons.get(index);
+    @Override
+    public void addButton(BasicButton button) {
+        buttonContainer.add(button);
+    }
+
+    public BasicButton getButton(int index){
+                return buttonContainer.get(index);
+    }
+
+    @Override
+    public int getContainerSize() {
+        return buttonContainer.size();
     }
 
 }

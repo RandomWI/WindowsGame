@@ -1,7 +1,6 @@
 package GUI_WindowsApp;
 
 import Abstract.VisualButton;
-import businessLogic.Button;
 
 import java.awt.*;
 
@@ -30,18 +29,5 @@ public class GWindowButton extends VisualButton {
         }
 
     }
-
-    /*public Button convertToButton(){
-        Button modified = new Button();
-
-        modified.setRow(getRow());
-        modified.setColumn(getColumn());
-
-        modified.setPressed(getPressed());
-
-        return modified;
-    }
-     */
-
 
 }

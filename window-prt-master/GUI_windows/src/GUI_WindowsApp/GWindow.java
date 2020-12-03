@@ -1,18 +1,19 @@
 package GUI_WindowsApp;
 
-import Abstract.Point;
-import businessLogic.Window;
 
-import javax.swing.*;
+import Abstract.VisualWindow;
+
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
 /**
  * Egy GWindowButton osztályból példányosított objektum négy GWindowButton objketumot foglal magába.
  * A JPanel osztály kiterjesztése.
  */
-public class GWindow extends JPanel implements Point {
+public class GWindow extends VisualWindow {
 
     private GWindowButton buttonOne;
     private GWindowButton buttonTwo;
@@ -21,12 +22,9 @@ public class GWindow extends JPanel implements Point {
 
     private int activeButton = 0;
 
-    private int row;
-    private int column;
-
 
     public GWindow(WindowSize size){
-        super(new GridBagLayout());
+        super();
 
         setButtonsSize(size);
         setButtonsPosition();
@@ -100,7 +98,7 @@ public class GWindow extends JPanel implements Point {
     public void ButtonAction(GWindowButton button){
 
         if(activeButton < 2){
-            if(!button.getPressed()){
+            if(!button.isPressed()){
                 button.buttonPress();
                 button.setBackground(Color.YELLOW);
                 activeButton++;
@@ -114,40 +112,26 @@ public class GWindow extends JPanel implements Point {
             }
         }
         else{
-            if(button.getPressed()){
+            if(button.isPressed()){
                 button.buttonPress();
                 button.setBackground(null);
                 activeButton--;
                 //System.out.println(activeButton);
             }
         }
-
     }
 
     @Override
-    public void setRow(int row) {
-        this.row = row;
+    public void setButtonContainer(){
+        buttonContainer = new Vector<>(4);
+
+        addButton(buttonOne);
+        addButton(buttonTwo);
+        addButton(buttonThree);
+        addButton(buttonFour);
     }
 
-    @Override
-    public void setColumn(int column) {
-        this.column = column;
-    }
 
-    @Override
-    public int getRow() {
-        return row;
-    }
-
-    @Override
-    public int getColumn() {
-        return column;
-    }
-
-    public void setCoordinate(int row, int column){
-        this.row = row;
-        this.column = column;
-    }
 
     /*public  Window convertToWindow(){
         Window modified = new Window();

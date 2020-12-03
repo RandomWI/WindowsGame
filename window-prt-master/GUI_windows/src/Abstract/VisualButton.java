@@ -26,9 +26,6 @@ public abstract class VisualButton extends JButton implements Point, Pressable{
         this.pressed = !pressed;
     }
 
-    public boolean getPressed(){
-        return pressed;
-    }
 
 
     //A Point interfész implementálása.

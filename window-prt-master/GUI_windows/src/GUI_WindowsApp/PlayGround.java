@@ -1,5 +1,6 @@
 package GUI_WindowsApp;
 
+import businessLogic.Converter;
 import businessLogic.Table;
 import businessLogic.Window;
 
@@ -72,7 +73,7 @@ public class PlayGround extends JPanel {
             constraints.gridx = gW.getColumn();
             constraints.gridy = gW.getRow();
             add(gW, constraints);
-            //setTable(gW.convertToWindow());
+            setTable(Converter.convertToWindow(gW));
         }
 
     }

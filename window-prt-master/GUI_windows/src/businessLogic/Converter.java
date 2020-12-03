@@ -1,33 +1,39 @@
 package businessLogic;
 
+import Abstract.BasicButton;
+import Abstract.BasicButtonContainer;
+import Abstract.VisualButton;
+import Abstract.VisualWindow;
+
 public final class Converter {
 
-    /*public Point convertToWindow(){
+    public static Window convertToWindow(VisualWindow visualW){
         Window modified = new Window();
 
-        modified.setRow(getRow());
-        modified.setColumn(getColumn());
+        modified.setRow(visualW.getRow());
+        modified.setColumn(visualW.getColumn());
 
-        modified.addButton(buttonOne.convertToButton());
-        modified.addButton(buttonTwo.convertToButton());
-        modified.addButton(buttonThree.convertToButton());
-        modified.addButton((buttonFour.convertToButton()));
+        visualW.setButtonContainer();
+        modified.setButtonContainer(visualW.getContainerSize());
 
-        return modified;
-    }
+        for(int i = 0; i < visualW.getContainerSize(); i++){
+            modified.addButton(convertToButton(visualW.getButton(i)));
+        }
 
-    public Button convertToButton(){
-        Button modified = new Button();
-
-        modified.setRow(getRow());
-        modified.setColumn(getColumn());
-
-        modified.setPressed(getPressed());
 
         return modified;
     }
 
-     */
+    public static BasicButton convertToButton(VisualButton visualButton){
+        BasicButton modified = new BasicButton();
+
+        modified.setRow(visualButton.getRow());
+        modified.setColumn(visualButton.getColumn());
+
+        modified.setPressed(visualButton.isPressed());
+
+        return modified;
+    }
 
 
 }
