@@ -7,7 +7,6 @@ public class Button implements Point, Pressable {
 
     private int row;
     private int column;
-
     private boolean pressed;
 
     public Button(){

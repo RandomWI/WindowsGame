@@ -5,7 +5,6 @@ import GUI_WindowsApp.GameFrame;
 public class Driver {
 
     public static void main(String[] args) {
-
         Table newTable = new Table();
 
         GameFrame newFrame = new GameFrame();

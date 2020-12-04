@@ -17,8 +17,9 @@ import java.util.Vector;
  */
 public class GWindow extends JPanel implements Point, VisualButtonContainer {
 
-    private int row;
+	private int row;
     private int column;
+    private int index;
 
     protected Vector<GWindowButton> buttonContainer;
 
@@ -181,6 +182,70 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer {
     public int getContainerSize(){
         return buttonContainer.size();
     }
+
+	public int getIndex() {
+		return index;
+	}
+
+	public void setIndex(int index) {
+		this.index = index;
+	}
+	
+    /**
+	 * @return the buttonOne
+	 */
+	public GWindowButton getButtonOne() {
+		return buttonOne;
+	}
+
+	/**
+	 * @param buttonOne the buttonOne to set
+	 */
+	public void setButtonOne(GWindowButton buttonOne) {
+		this.buttonOne = buttonOne;
+	}
+
+	/**
+	 * @return the buttonTwo
+	 */
+	public GWindowButton getButtonTwo() {
+		return buttonTwo;
+	}
+
+	/**
+	 * @param buttonTwo the buttonTwo to set
+	 */
+	public void setButtonTwo(GWindowButton buttonTwo) {
+		this.buttonTwo = buttonTwo;
+	}
+
+	/**
+	 * @return the buttonThree
+	 */
+	public GWindowButton getButtonThree() {
+		return buttonThree;
+	}
+
+	/**
+	 * @param buttonThree the buttonThree to set
+	 */
+	public void setButtonThree(GWindowButton buttonThree) {
+		this.buttonThree = buttonThree;
+	}
+
+	/**
+	 * @return the buttonFour
+	 */
+	public GWindowButton getButtonFour() {
+		return buttonFour;
+	}
+
+	/**
+	 * @param buttonFour the buttonFour to set
+	 */
+	public void setButtonFour(GWindowButton buttonFour) {
+		this.buttonFour = buttonFour;
+	}
 
 }
 
