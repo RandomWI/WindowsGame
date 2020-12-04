@@ -30,7 +30,7 @@ public class XMLWriter {
 	      
 	        ArrayList<GWindow> gwindowList = new ArrayList<GWindow>();
 	        gwindowList = container.getGwindowList();
-	    
+	    int end = 0;
 	        
 	        try {
 	        	DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
@@ -45,7 +45,10 @@ public class XMLWriter {
 	            doc.appendChild(rootElement);
 
 	            //append first child element to root element
+	          
 	            for (GWindow element : gwindowList) {
+	            	end ++;
+	            	System.out.println(end);
 	            	
 	            	Element GWindow = doc.createElement("GWindow");
 	            	rootElement.appendChild(GWindow);
@@ -111,6 +114,10 @@ public class XMLWriter {
 	            	GWindow.appendChild(ButtonTwo);
 	            	GWindow.appendChild(ButtonThree);
 	            	GWindow.appendChild(ButtonFour);
+	            	if(end==container.getSize())
+	            	{
+	            		break;
+	            	}
 				}
 	            TransformerFactory transformerFactory = TransformerFactory.newInstance();
 	            Transformer transformer = transformerFactory.newTransformer();

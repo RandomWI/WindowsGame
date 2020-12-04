@@ -46,25 +46,31 @@ public class PlayGround extends JPanel {
     }
 
     public void generateWindows(){
+    	
         gWindows = new Vector<>();
 
         int row = 0;
         int column = 0;
-
+        int index=0;
         for(int i = 0; i < size; i++){
+        
             for(int j = 0; j < size; j++){
+            	
                 GWindow newGWindow = new GWindow(wSize);
                 newGWindow.setCoordinate(row, column);
-                newGWindow.setIndex(i);
+                newGWindow.setIndex(index);
                 gWindows.add(newGWindow);
                 
                 container.gwindowList.add(newGWindow);
                 column++;
+                index++;
                 //setTable(newGWindow.convertToWindow());
             }
             column = 0;
             row++;
         }
+        
+        container.setSize(index);
     }
 
     public void setPlayGround(){

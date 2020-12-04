@@ -19,7 +19,7 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer {
 
 	private int row;
     private int column;
-    private int index;
+    private int index = 0;
 
     protected Vector<GWindowButton> buttonContainer;
 
