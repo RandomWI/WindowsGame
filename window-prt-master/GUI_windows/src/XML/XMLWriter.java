@@ -123,6 +123,7 @@ public class XMLWriter {
 	            Transformer transformer = transformerFactory.newTransformer();
 	            DOMSource domSource = new DOMSource(doc);
 	            StreamResult streamResult = new StreamResult(new File(xmlFilePath));
+	            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 	 
 	            transformer.transform(domSource, streamResult);
 	 
