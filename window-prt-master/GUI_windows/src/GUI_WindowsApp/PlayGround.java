@@ -36,7 +36,9 @@ public class PlayGround extends JPanel {
     }
 
     public void setSize(int size){
-                this.size = size;
+
+        this.size = size;
+
         /*A kinézet széthullásának megelőzése érdekében nagyobb méretnél csökkenteni
         kell a gombok és ezzel az ablak méretét. */
         if(size<=10)

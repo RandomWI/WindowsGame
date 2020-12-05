@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.nio.channels.FileChannel;
+
 import XML.XMLWriter;
 
 /**
@@ -13,6 +15,9 @@ public class ButtonBar extends JPanel {
 
 	protected JButton buttonLoading;
     protected JButton buttonSave;
+
+    private JFileChooser jfc = new JFileChooser("D:");
+
     XMLWriter manager = new XMLWriter();
     GWindowContainer cont = new GWindowContainer();
     
@@ -39,6 +44,13 @@ public class ButtonBar extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
             manager.Write(PlayGround.container);
+            }
+        });
+
+        buttonLoading.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jfc.showOpenDialog(null);
             }
         });
     }
