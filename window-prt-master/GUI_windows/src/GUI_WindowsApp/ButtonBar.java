@@ -16,10 +16,11 @@ public class ButtonBar extends JPanel {
 	protected JButton buttonLoading;
     protected JButton buttonSave;
 
+
     private JFileChooser jfc = new JFileChooser("D:");
 
     XMLWriter manager = new XMLWriter();
-    GWindowContainer cont = new GWindowContainer();
+   
     
     public ButtonBar(){
         super(new GridBagLayout());
@@ -43,7 +44,8 @@ public class ButtonBar extends JPanel {
         buttonSave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            manager.Write(PlayGround.container);
+            	System.out.println(PlayGround.getTable());
+            PlayGround.getTable().write(PlayGround.getTable());
             }
         });
 

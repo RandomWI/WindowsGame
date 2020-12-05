@@ -14,18 +14,21 @@ import java.util.Vector;
 public class PlayGround extends JPanel {
 
    
+	/**
+	 * @return the table
+	 */
+	static Table getTable() {
+		return table;
+	}
+
 	private int size;
     private WindowSize wSize;
 
     private Vector<GWindow> gWindows;
-    private Table table;
-
-    static GWindowContainer container = new GWindowContainer();
-
+    private static Table table;
 
     public PlayGround(int size, Table table){
         super(new GridBagLayout());
-        removeContainer();
 
         joinTable(table);
 
@@ -64,8 +67,7 @@ public class PlayGround extends JPanel {
                 newGWindow.setCoordinate(row, column);
                 newGWindow.setIndex(index);
                 gWindows.add(newGWindow);
-                
-                container.gwindowList.add(newGWindow);
+
                 column++;
                 index++;
                 //setTable(newGWindow.convertToWindow());
@@ -73,8 +75,6 @@ public class PlayGround extends JPanel {
             column = 0;
             row++;
         }
-        
-        container.setSize(index);
     }
 
     public void setPlayGround(){
@@ -124,10 +124,6 @@ public class PlayGround extends JPanel {
 
     public void setTable(Window window){
         table.addWindow(window);
-    }
-
-    public void removeContainer(){
-        container.clear();
     }
 
 }

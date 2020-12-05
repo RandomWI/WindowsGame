@@ -2,6 +2,7 @@ package XML;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Vector;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -18,47 +19,68 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
-import GUI_WindowsApp.GWindow;
-import GUI_WindowsApp.GWindowContainer;
+import businessLogic.Button;
+import businessLogic.Table;
+import businessLogic.Window;
 
 public class XMLWriter {
 
 	public static final String xmlFilePath = "gameState.xml";
 
-	   public void Write(GWindowContainer container) {
+	   public void Write(Table container) {
 	        
 	      
-	        ArrayList<GWindow> gwindowList = new ArrayList<GWindow>();
-	        gwindowList = container.getGwindowList();
+	        Window fluffyWindow = new Window();
+	        Vector<Button> buttonContainer;
+	       Button one;
+	       Button two;
+	       Button three;
+	       Button four;
+	       
 	    int end = 0;
 	        
 	        try {
-	        	DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
-	        	 
+	        	DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance(); 
 	            DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
-	 
 	            Document doc = documentBuilder.newDocument();
-	            //add elements to Document
+	            
 	            Element rootElement =
 	                doc.createElement("Container");
-	            //append root element to document
 	            doc.appendChild(rootElement);
 
-	            //append first child element to root element
-	          
-	            for (GWindow element : gwindowList) {
-	            	end ++;
-	            	System.out.println(end);
+	            
+	          int index;
+	            for (int i = 0;i<container.size();i++) {
 	            	
-	            	Element GWindow = doc.createElement("GWindow");
-	            	rootElement.appendChild(GWindow);
+	            	index=0;
+	            	fluffyWindow = container.getWindow(i);
+	            	buttonContainer = fluffyWindow.getButtonContainer();
+	            	
+	            	one = buttonContainer.get(index);
+	            	index++;
+	            	two = buttonContainer.get(index);
+	            	index++;
+	            	three = buttonContainer.get(index);
+	            	index++;
+	            	four = buttonContainer.get(index);
+	            	
+	            	Element Window = doc.createElement("Window");
+	            	rootElement.appendChild(Window);
 	            	
 	            	Attr attrID = doc.createAttribute("ID");
-	                attrID.setValue(element.getIndex()+"");
+	                attrID.setValue(i+"");
 	                
-	                GWindow.setAttributeNode(attrID);
+	                Window.setAttributeNode(attrID);
 	                
+	                Attr attrRow = doc.createAttribute("Row");
+	                attrRow.setValue(fluffyWindow.getRow()+"");
 	                
+	                Window.setAttributeNode(attrRow);
+	                
+	                Attr attrCol = doc.createAttribute("Col");
+	                attrCol.setValue(fluffyWindow.getColumn()+"");
+	                
+	                Window.setAttributeNode(attrCol);
 	            	Element ButtonOne = doc.createElement("ButtonOne");
 	            	Element ButtonTwo = doc.createElement("ButtonTwo");
 	            	Element ButtonThree = doc.createElement("ButtonThree");
@@ -66,32 +88,32 @@ public class XMLWriter {
 	            	
 	            	
 	            	Attr attrRowBT1 = doc.createAttribute("ROW");
-	                attrRowBT1.setValue(element.getButtonOne().getRow()+"");
+	                attrRowBT1.setValue(one.getRow()+"");
 	                Attr attrColBT1 = doc.createAttribute("COL");
-	                attrColBT1.setValue(element.getButtonOne().getColumn()+"");
+	                attrColBT1.setValue(one.getColumn()+"");
 	                Attr attrActiveBT1 = doc.createAttribute("ACTIVE");
-	                attrActiveBT1.setValue(element.getButtonOne().isPressed()+"");
+	                attrActiveBT1.setValue(one.isPressed()+"");
 	                
 	                Attr attrRowBT2 = doc.createAttribute("ROW");
-	                attrRowBT2.setValue(element.getButtonTwo().getRow()+"");
+	                attrRowBT2.setValue(two.getRow()+"");
 	                Attr attrColBT2 = doc.createAttribute("COL");
-	                attrColBT2.setValue(element.getButtonTwo().getColumn()+"");
+	                attrColBT2.setValue(two.getColumn()+"");
 	                Attr attrActiveBT2 = doc.createAttribute("ACTIVE");
-	                attrActiveBT2.setValue(element.getButtonTwo().isPressed()+"");
+	                attrActiveBT2.setValue(two.isPressed()+"");
 	                
 	                Attr attrRowBT3 = doc.createAttribute("ROW");
-	                attrRowBT3.setValue(element.getButtonThree().getRow()+"");
+	                attrRowBT3.setValue(three.getRow()+"");
 	                Attr attrColBT3 = doc.createAttribute("COL");
-	                attrColBT3.setValue(element.getButtonThree().getColumn()+"");
+	                attrColBT3.setValue(three.getColumn()+"");
 	                Attr attrActiveBT3 = doc.createAttribute("ACTIVE");
-	                attrActiveBT3.setValue(element.getButtonThree().isPressed()+"");
+	                attrActiveBT3.setValue(three.isPressed()+"");
 	                
 	                Attr attrRowBT4 = doc.createAttribute("ROW");
-	                attrRowBT4.setValue(element.getButtonFour().getRow()+"");
+	                attrRowBT4.setValue(four.getRow()+"");
 	                Attr attrColBT4 = doc.createAttribute("COL");
-	                attrColBT4.setValue(element.getButtonFour().getColumn()+"");
+	                attrColBT4.setValue(four.getColumn()+"");
 	                Attr attrActiveBT4 = doc.createAttribute("ACTIVE");
-	                attrActiveBT4.setValue(element.getButtonFour().isPressed()+"");
+	                attrActiveBT4.setValue(four.isPressed()+"");
 	                
 	            	
 	            	ButtonOne.setAttributeNode(attrRowBT1);
@@ -110,14 +132,10 @@ public class XMLWriter {
 	            	ButtonFour.setAttributeNode(attrColBT4);
 	            	ButtonFour.setAttributeNode(attrActiveBT4);
 	  
-	            	GWindow.appendChild(ButtonOne);
-	            	GWindow.appendChild(ButtonTwo);
-	            	GWindow.appendChild(ButtonThree);
-	            	GWindow.appendChild(ButtonFour);
-	            	if(end==container.getSize())
-	            	{
-	            		break;
-	            	}
+	            	Window.appendChild(ButtonOne);
+	            	Window.appendChild(ButtonTwo);
+	            	Window.appendChild(ButtonThree);
+	            	Window.appendChild(ButtonFour);
 				}
 	            TransformerFactory transformerFactory = TransformerFactory.newInstance();
 	            Transformer transformer = transformerFactory.newTransformer();

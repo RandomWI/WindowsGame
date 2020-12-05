@@ -20,6 +20,7 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer {
 	private int row;
     private int column;
     private int index = 0;
+    private WindowSize wSize;
 
     protected Vector<GWindowButton> buttonContainer;
 
@@ -246,6 +247,15 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer {
 	public void setButtonFour(GWindowButton buttonFour) {
 		this.buttonFour = buttonFour;
 	}
+
+	public WindowSize getwSize() {
+		return wSize;
+	}
+
+	public void setwSize(WindowSize wSize) {
+		this.wSize = wSize;
+	}
+
 
 }
 

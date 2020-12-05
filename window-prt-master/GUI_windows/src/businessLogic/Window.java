@@ -7,7 +7,8 @@ import java.util.Vector;
 
 public class Window implements Point, BasicButtonContainer {
 
-    private int row;
+ 
+	private int row;
     private int column;
 
     private Vector<Button> buttonContainer;
@@ -53,5 +54,19 @@ public class Window implements Point, BasicButtonContainer {
     public int getContainerSize() {
         return buttonContainer.size();
     }
+
+    /**
+ 	 * @return the buttonContainer
+ 	 */
+ 	public Vector<Button> getButtonContainer() {
+ 		return buttonContainer;
+ 	}
+
+ 	/**
+ 	 * @param buttonContainer the buttonContainer to set
+ 	 */
+ 	private void setButtonContainer(Vector<Button> buttonContainer) {
+ 		this.buttonContainer = buttonContainer;
+ 	}
 
 }
