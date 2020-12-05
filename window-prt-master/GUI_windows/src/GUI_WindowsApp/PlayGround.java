@@ -76,7 +76,6 @@ public class PlayGround extends JPanel {
             add(gW, constraints);
             setTable(Converter.convertToWindow(gW));
         }
-
     }
 
     /*public void setPlayGround(){
