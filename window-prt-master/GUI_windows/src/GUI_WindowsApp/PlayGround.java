@@ -21,35 +21,39 @@ public class PlayGround extends JPanel {
 		return table;
 	}
 
-	private int size;
-    private WindowSize wSize;
+    private int numberOfWindows;
+    private int windowSize;
 
     private Vector<GWindow> gWindows;
     private static Table table;
 
-    public PlayGround(int size, Table table){
+    public PlayGround(int numberOfWindows, Table table){
         super(new GridBagLayout());
+
+        this.numberOfWindows = numberOfWindows;
 
         joinTable(table);
 
-        setSize(size);
+        setWindowSize(numberOfWindows);
         generateWindows();
         setPlayGround();
 
     }
 
-    public void setSize(int size){
+    public void setWindowSize(int numberOfWindows){
 
-        this.size = size;
+        double screenHeight;
+        double screenWidth;
 
-        /*A kinézet széthullásának megelőzése érdekében nagyobb méretnél csökkenteni
-        kell a gombok és ezzel az ablak méretét. */
-        if(size<=10)
-            wSize = WindowSize.LARGE;
-        else if(size>10 && size<=20)
-            wSize = WindowSize.MEDIUM;
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        screenHeight = screenSize.getHeight();
+        screenWidth = screenSize.getWidth();
+
+        if(screenHeight<screenWidth)
+            this.windowSize = (int)((screenHeight*1)/numberOfWindows);
         else
-            wSize = WindowSize.SMALL;
+            this.windowSize = (int)((screenWidth*1)/numberOfWindows);
+
     }
 
     public void generateWindows(){
@@ -59,11 +63,11 @@ public class PlayGround extends JPanel {
         int row = 0;
         int column = 0;
         int index=0;
-        for(int i = 0; i < size; i++){
+        for(int i = 0; i < numberOfWindows; i++){
         
-            for(int j = 0; j < size; j++){
+            for(int j = 0; j < numberOfWindows; j++){
             	
-                GWindow newGWindow = new GWindow(wSize);
+                GWindow newGWindow = new GWindow(windowSize);
                 newGWindow.setCoordinate(row, column);
                 newGWindow.setIndex(index);
                 gWindows.add(newGWindow);
