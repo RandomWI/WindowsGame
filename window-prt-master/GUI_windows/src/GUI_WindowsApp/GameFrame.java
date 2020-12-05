@@ -20,23 +20,7 @@ public class GameFrame extends JFrame{
 
     public GameFrame(int numberOfWindows){
         super("Demo");
-        mainPanel = new JPanel(new BorderLayout());
-
-        sizePanel = new SizePanel(this);
-        playGround = new PlayGround(numberOfWindows, table);
-        buttonBar = new ButtonBar();
-
-        //Add the panels to this MainPanel
-        mainPanel.add(sizePanel, BorderLayout.PAGE_START);
-        mainPanel.add(playGround, BorderLayout.CENTER);
-        mainPanel.add(buttonBar, BorderLayout.PAGE_END);
-
-        add(mainPanel);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        pack();
-        setLocationRelativeTo(null);
-        setVisible(true);
-        //System.out.println(mainPanel);
+        setFrame(numberOfWindows);
     }
 
     public void setFrame(int numberOfWindows){
