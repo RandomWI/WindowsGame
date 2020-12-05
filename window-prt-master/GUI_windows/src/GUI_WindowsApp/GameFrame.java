@@ -18,12 +18,12 @@ public class GameFrame extends JFrame{
         super("Demo");
     }
 
-    public GameFrame(int size){
+    public GameFrame(int numberOfWindows){
         super("Demo");
         mainPanel = new JPanel(new BorderLayout());
 
         sizePanel = new SizePanel(this);
-        playGround = new PlayGround(size, table);
+        playGround = new PlayGround(numberOfWindows, table);
         buttonBar = new ButtonBar();
 
         //Add the panels to this MainPanel
@@ -36,14 +36,14 @@ public class GameFrame extends JFrame{
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
-        System.out.println(mainPanel);
+        //System.out.println(mainPanel);
     }
 
-    public void setFrame(int size){
+    public void setFrame(int numberOfWindows){
         mainPanel = new JPanel(new BorderLayout());
 
         sizePanel = new SizePanel(this);
-        playGround = new PlayGround(size, table);
+        playGround = new PlayGround(numberOfWindows, table);
         buttonBar = new ButtonBar();
 
         //Add the panels to this MainPanel
@@ -58,10 +58,10 @@ public class GameFrame extends JFrame{
         setVisible(true);
     }
 
-    protected void ResizeApp(int size){
+    protected void ResizeApp(int numberOfWindows){
         setVisible(false);
         remove(mainPanel);
-        setFrame(size);
+        setFrame(numberOfWindows);
         setVisible(true);
     }
 
