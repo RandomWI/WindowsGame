@@ -1,22 +1,12 @@
-package businessLogic;
+package Abstract;
 
-import Abstract.Point;
-import Abstract.Pressable;
-
-public class Button implements Point, Pressable {
+public class BasicButton implements Point, Pressable{
 
     private int row;
     private int column;
+
     private boolean pressed;
 
-    public Button(){
-        super();
-    }
-
-    public Button(int row, int column){
-        setRow(row);
-        setColumn(column);
-    }
 
     //A Pressable interfész implementálása.
     @Override
@@ -25,8 +15,8 @@ public class Button implements Point, Pressable {
     }
 
     @Override
-    public void setPressed(boolean press) {
-        this.pressed = press;
+    public void setPressed(boolean isPressed) {
+        this.pressed = isPressed;
     }
 
     @Override

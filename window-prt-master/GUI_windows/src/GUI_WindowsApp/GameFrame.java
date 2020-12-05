@@ -36,6 +36,7 @@ public class GameFrame extends JFrame{
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
+        System.out.println(mainPanel);
     }
 
     public void setFrame(int size){

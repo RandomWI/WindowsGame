@@ -13,11 +13,13 @@ import java.util.Vector;
  */
 public class PlayGround extends JPanel {
 
-    private int size;
+   
+	private int size;
     private WindowSize wSize;
 
     private Vector<GWindow> gWindows;
     private Table table;
+    static GWindowContainer container = new GWindowContainer();
 
 
     public PlayGround(int size, Table table){
@@ -44,22 +46,31 @@ public class PlayGround extends JPanel {
     }
 
     public void generateWindows(){
+    	
         gWindows = new Vector<>();
 
         int row = 0;
         int column = 0;
-
+        int index=0;
         for(int i = 0; i < size; i++){
+        
             for(int j = 0; j < size; j++){
+            	
                 GWindow newGWindow = new GWindow(wSize);
                 newGWindow.setCoordinate(row, column);
+                newGWindow.setIndex(index);
                 gWindows.add(newGWindow);
+                
+                container.gwindowList.add(newGWindow);
                 column++;
+                index++;
                 //setTable(newGWindow.convertToWindow());
             }
             column = 0;
             row++;
         }
+        
+        container.setSize(index);
     }
 
     public void setPlayGround(){
