@@ -13,19 +13,14 @@ import java.util.Vector;
  */
 public class PlayGround extends JPanel {
 
-   
-	/**
-	 * @return the table
-	 */
-	static Table getTable() {
-		return table;
-	}
 
     private int numberOfWindows;
     private int windowSize;
 
     private Vector<GWindow> gWindows;
+
     private static Table table;
+
 
     public PlayGround(int numberOfWindows, Table table){
         super(new GridBagLayout());
@@ -105,6 +100,13 @@ public class PlayGround extends JPanel {
 
     public void setTable(Window window){
         table.addWindow(window);
+    }
+
+    /**
+     * @return the table
+     */
+    static Table getTable() {
+        return table;
     }
 
 }
