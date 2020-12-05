@@ -1,3 +1,4 @@
+/*
 package Abstract;
 
 import javax.swing.*;
@@ -58,3 +59,5 @@ public abstract class VisualButton extends JButton implements Point, Pressable{
     }
 
 }
+
+ */

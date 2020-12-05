@@ -19,18 +19,20 @@ public class PlayGround extends JPanel {
 
     private Vector<GWindow> gWindows;
     private Table table;
+
     static GWindowContainer container = new GWindowContainer();
 
 
     public PlayGround(int size, Table table){
         super(new GridBagLayout());
-        setBackground(Color.BLACK);
+        removeContainer();
 
         joinTable(table);
 
         setSize(size);
         generateWindows();
         setPlayGround();
+
     }
 
     public void setSize(int size){
@@ -75,6 +77,8 @@ public class PlayGround extends JPanel {
 
     public void setPlayGround(){
 
+        setBackground(Color.BLACK);
+
         //Create constraints
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.anchor = GridBagConstraints.WEST;
@@ -118,6 +122,10 @@ public class PlayGround extends JPanel {
 
     public void setTable(Window window){
         table.addWindow(window);
+    }
+
+    public void removeContainer(){
+        container.clear();
     }
 
 }

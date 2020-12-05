@@ -4,17 +4,24 @@ import java.util.ArrayList;
 
 public class GWindowContainer {
 
+	int size;
+	ArrayList<GWindow> gwindowList;
+
+	public GWindowContainer() {gwindowList = new ArrayList<>();}
+
 	private void setGwindowList(ArrayList<GWindow> gwindowList) {
 		this.gwindowList = gwindowList;
 	}
-	int size;
-	ArrayList<GWindow> gwindowList;
-	   public GWindowContainer() {gwindowList = new ArrayList<>();}
 
-	    void addGWindow(GWindow tmpB) {
-	        gwindowList.add(tmpB);
-	        size++;
-	    }
+
+	void addGWindow(GWindow tmpB) {
+		gwindowList.add(tmpB);
+		size++;
+	}
+
+	public void clear(){
+		gwindowList.clear();
+	}
 
 	    
 		/**
@@ -42,4 +49,5 @@ public class GWindowContainer {
 		/**
 		 * @return the size
 		 */
+
 }
