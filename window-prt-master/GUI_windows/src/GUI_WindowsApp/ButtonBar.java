@@ -19,8 +19,6 @@ public class ButtonBar extends JPanel {
 
     private JFileChooser jfc = new JFileChooser("D:");
 
-    XMLWriter manager = new XMLWriter();
-   
     
     public ButtonBar(){
         super(new GridBagLayout());
@@ -31,7 +29,7 @@ public class ButtonBar extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
             	System.out.println(PlayGround.getTable());
-            PlayGround.getTable().write(PlayGround.getTable());
+                PlayGround.getTable().write(PlayGround.getTable());
             }
         });
 
