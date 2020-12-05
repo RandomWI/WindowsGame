@@ -99,29 +99,6 @@ public class PlayGround extends JPanel {
         }
     }
 
-    /*public void setPlayGround(){
-        //Create constraints
-        GridBagConstraints constraints = new GridBagConstraints();
-        constraints.anchor = GridBagConstraints.WEST;
-        constraints.insets = new Insets(2, 2, 2, 2);
-
-        //Create a new Windows
-        constraints.gridx = 0;
-        constraints.gridy = 0;
-
-        for(int i = 0; i < size; i++){
-            for(int j = 0; j < size; j++){
-                GWindow newGWindow = new GWindow(wSize);
-                add(newGWindow, constraints);
-                setTable(newGWindow.convertToWindow());
-                constraints.gridx += 1;
-            }
-            constraints.gridx = 0;
-            constraints.gridy += 1;
-        }
-    }
-     */
-
     public void joinTable(Table table){
         this.table = table;
     }
