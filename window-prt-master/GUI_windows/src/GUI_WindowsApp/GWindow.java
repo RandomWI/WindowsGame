@@ -20,20 +20,16 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
 	private int row;
     private int column;
 
-    private int index = 0;
-
     private Vector<GWindowButton> buttonContainer;
 
-    protected GWindowButton buttonOne;
-    protected GWindowButton buttonTwo;
-    protected GWindowButton buttonThree;
-    protected GWindowButton buttonFour;
 
+    private GWindowButton buttonOne;
+    private GWindowButton buttonTwo;
+    private GWindowButton buttonThree;
+    private GWindowButton buttonFour;
+
+    private int buttonSize;
     private int activeButton = 0;
-
-    public GWindow(){
-        super(new GridBagLayout());
-    }
 
 
     public GWindow(int windowSize){
@@ -74,10 +70,16 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
     }
 
     public void setButtonSize(int windowSize){
-        buttonOne = new GWindowButton(windowSize/4);
-        buttonTwo = new GWindowButton(windowSize/4);
-        buttonThree = new GWindowButton(windowSize/4);
-        buttonFour = new GWindowButton(windowSize/4);
+        this.buttonSize = windowSize/4;
+
+        buttonOne = new GWindowButton(buttonSize);
+        buttonTwo = new GWindowButton(buttonSize);
+        buttonThree = new GWindowButton(buttonSize);
+        buttonFour = new GWindowButton(buttonSize);
+    }
+
+    public int getButtonSize(){
+        return buttonSize;
     }
 
     public void setButtonsPosition(){
@@ -196,13 +198,7 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
         return buttonContainer.size();
     }
 
-	public int getIndex() {
-		return index;
-	}
 
-	public void setIndex(int index) {
-		this.index = index;
-	}
 
 }
 

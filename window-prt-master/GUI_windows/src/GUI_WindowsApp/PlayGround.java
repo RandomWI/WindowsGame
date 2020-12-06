@@ -51,24 +51,36 @@ public class PlayGround extends JPanel {
 
     }
 
+    public static int getWindowsSize(int numberOfWindows){
+        double screenHeight;
+        double screenWidth;
+
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        screenHeight = screenSize.getHeight();
+        screenWidth = screenSize.getWidth();
+
+        if(screenHeight<screenWidth)
+            return (int)((screenHeight*1)/numberOfWindows);
+        else
+            return (int)((screenWidth*1)/numberOfWindows);
+    }
+
     public void generateWindows(){
     	
         gWindows = new Vector<>();
 
         int row = 0;
         int column = 0;
-        int index=0;
+
         for(int i = 0; i < numberOfWindows; i++){
         
             for(int j = 0; j < numberOfWindows; j++){
             	
                 GWindow newGWindow = new GWindow(windowSize);
                 newGWindow.setCoordinate(row, column);
-                newGWindow.setIndex(index);
                 gWindows.add(newGWindow);
 
                 column++;
-                index++;
                 //setTable(newGWindow.convertToWindow());
             }
             column = 0;
