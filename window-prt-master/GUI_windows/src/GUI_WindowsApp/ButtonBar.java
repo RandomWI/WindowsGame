@@ -61,7 +61,7 @@ public class ButtonBar extends JPanel {
     }
 
 
-    private void LoadingAction(){
+    private void LoadingToPlayGround(){
 
         GWindow gw;
 

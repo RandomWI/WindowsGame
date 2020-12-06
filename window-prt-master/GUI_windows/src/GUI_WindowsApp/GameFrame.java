@@ -43,7 +43,7 @@ public class GameFrame extends JFrame{
         setVisible(true);
     }
 
-    protected void ResizeApp(int numberOfWindows){
+    public void ResizeApp(int numberOfWindows){
         setVisible(false);
         remove(mainPanel);
         setFrame(numberOfWindows);
