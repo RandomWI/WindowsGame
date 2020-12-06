@@ -18,6 +18,7 @@ public class ButtonBar extends JPanel {
 
 	protected JButton buttonLoading;
     protected JButton buttonSave;
+    String fileName;
 
 
     private JFileChooser jfc = new JFileChooser("D:");
@@ -32,7 +33,7 @@ public class ButtonBar extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
             	System.out.println(PlayGround.getTable());
-                PlayGround.getTable().write(PlayGround.getTable());
+                PlayGround.getTable().write(PlayGround.getTable(),fileName);
             }
         });
 
