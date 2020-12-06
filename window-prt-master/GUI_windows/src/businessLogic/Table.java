@@ -8,7 +8,7 @@ import XML.XMLWriter;
 public class Table {
 
 	private int index;
-    private final Vector<Window> windows;
+    private Vector<Window> windows;
     int counter=0;
     XMLWriter writer = new XMLWriter();
     XMLReader reader = new XMLReader();
@@ -24,6 +24,10 @@ public class Table {
 
     public Window getWindow(int index){
         return windows.get(index);
+    }
+
+    public void clear(){
+        windows.clear();
     }
 
     public int size(){
