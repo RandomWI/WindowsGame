@@ -15,7 +15,7 @@ import java.util.Vector;
  * Egy GWindow osztályból példányosított objektum négy GWindowButton objketumot foglal magába.
  * A JPanel osztály kiterjesztése.
  */
-public class GWindow extends JPanel implements Point, VisualButtonContainer {
+public class GWindow extends JPanel implements Point, VisualButtonContainer{
 
 	private int row;
     private int column;
@@ -24,12 +24,16 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer {
 
     private Vector<GWindowButton> buttonContainer;
 
-    private GWindowButton buttonOne;
-    private GWindowButton buttonTwo;
-    private GWindowButton buttonThree;
-    private GWindowButton buttonFour;
+    protected GWindowButton buttonOne;
+    protected GWindowButton buttonTwo;
+    protected GWindowButton buttonThree;
+    protected GWindowButton buttonFour;
 
     private int activeButton = 0;
+
+    public GWindow(){
+        super(new GridBagLayout());
+    }
 
 
     public GWindow(int windowSize){
@@ -158,6 +162,7 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer {
         this.column = column;
     }
 
+
     //A VisualButtonContainer implementálása.
     @Override
     public void setButtonContainer(){
@@ -167,6 +172,13 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer {
         addButton(buttonTwo);
         addButton(buttonThree);
         addButton(buttonFour);
+    }
+
+    public void setButtons(){
+        buttonOne = buttonContainer.get(0);
+        buttonTwo = buttonContainer.get(1);
+        buttonThree = buttonContainer.get(2);
+        buttonFour = buttonContainer.get(3);
     }
 
     @Override
