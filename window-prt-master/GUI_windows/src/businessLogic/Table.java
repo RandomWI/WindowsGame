@@ -4,6 +4,7 @@ import java.util.Vector;
 
 import XML.XMLReader;
 import XML.XMLWriter;
+import Server.CREATE;
 
 public class Table {
 
@@ -12,6 +13,7 @@ public class Table {
     int counter=0;
     XMLWriter writer = new XMLWriter();
     XMLReader reader = new XMLReader();
+    CREATE sender = new CREATE();
 
     public Table(){
         windows = new Vector<>();
@@ -45,6 +47,7 @@ public class Table {
 	public void write(Table container,String filename){
 	writer.Write(container);
 	String state = reader.Read(filename);
+	sender.stateToDB(filename, state);
 	}
 
 	/* public void SomeMethod(String file_path){

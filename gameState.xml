@@ -9,143 +9,17 @@
     <Window Col="1" ID="1" Row="0">
         <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
         <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
+        <ButtonThree ACTIVE="true" COL="1" ROW="0"/>
+        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
+    </Window>
+    <Window Col="0" ID="2" Row="1">
+        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
+        <ButtonTwo ACTIVE="true" COL="0" ROW="1"/>
         <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
         <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
     </Window>
-    <Window Col="2" ID="2" Row="0">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="3" ID="3" Row="0">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="4" ID="4" Row="0">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="0" ID="5" Row="1">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="1" ID="6" Row="1">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="2" ID="7" Row="1">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="3" ID="8" Row="1">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="4" ID="9" Row="1">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="0" ID="10" Row="2">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="1" ID="11" Row="2">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="2" ID="12" Row="2">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="3" ID="13" Row="2">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="4" ID="14" Row="2">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="0" ID="15" Row="3">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="1" ID="16" Row="3">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="2" ID="17" Row="3">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="3" ID="18" Row="3">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="4" ID="19" Row="3">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="0" ID="20" Row="4">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="1" ID="21" Row="4">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="2" ID="22" Row="4">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="3" ID="23" Row="4">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="4" ID="24" Row="4">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
+    <Window Col="1" ID="3" Row="1">
+        <ButtonOne ACTIVE="true" COL="0" ROW="0"/>
         <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
         <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
         <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
