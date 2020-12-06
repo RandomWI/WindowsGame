@@ -38,9 +38,12 @@ public class ButtonBar extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SaveAction();
-                //fileName = "gamneState.xml"; //Ha ez benne van nagyon sok hibát dob.
+
+                //fileName = "gameState.xml"; //Ha ez benne van nagyon sok hibát dob.
+
                 //System.out.println(PlayGround.getTable());
                 //PlayGround.getTable().write(PlayGround.getTable(),fileName);
+
                 System.out.println(table);
                 table.write(table, fileName);
             }
@@ -71,6 +74,8 @@ public class ButtonBar extends JPanel {
     }
 
     private void SaveAction(){
+        table.clear(); // Mentés előtt törli a table tartalmát.
+
         for(GWindow gw : PlayGround.getGWindowsContainer()){
             table.addWindow(Converter.convertToWindow(gw));
         }
@@ -78,6 +83,7 @@ public class ButtonBar extends JPanel {
 
 
     private void LoadingToPlayGround(){
+        PlayGround.getGWindowsContainer().clear(); //Törli a már benne lévő tartalmat mielőtt rátöltené.
 
         GWindow gw;
 
