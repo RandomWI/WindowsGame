@@ -1,35 +1,44 @@
 package Server;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.mysql.cj.xdevapi.Result;
+import com.mysql.cj.xdevapi.Statement;
+
 import businessLogic.idGenerator;
-import java.sql.*;
 
-public class Insert {
+public class Select {
 
-	
 	   static final String DB_URL = "jdbc:mysql://127.0.0.1/states";
 
 	   static final String USER = "root";
 	   static final String PASS = "password";
 	   
-	public void stateToDB(String fileName,String table) {
-		idGenerator gen = new idGenerator();
-		String _id = gen.randomString();
+	public String select(String fileName) {
 	   Connection conn = null;
+	   String result = "";
 	   PreparedStatement stmt = null;
 	   try{
 	      Class.forName("com.mysql.jdbc.Driver");
 
 	      System.out.println("Connecting to database...");
 	      conn = DriverManager.getConnection(DB_URL,USER,PASS);
-	     String sql = "INSERT INTO statessaved(_id,name,state) VALUES (?,?,?)";
+	     String sql = "SELECT * FROM statessaved Where name LIKE ?";
+	     stmt = conn.prepareStatement(sql);
+	      stmt.setString(1,fileName);
+	   
+
+	      ResultSet rs = stmt.executeQuery();
 	     
-	      stmt = conn.prepareStatement(sql);
-	
-	      stmt.setString(1, _id);
-	      stmt.setString(2, fileName);
-	      stmt.setString(3, table);
-	      int rs = stmt.executeUpdate();
-	      if (rs == 1) {
+	      while(rs.next()){
+	          result = rs.getString("state");
+	      }
+	      if (rs != null) {
 	          System.out.println("Done!");
 	      }
 	  } catch (Exception e) {
@@ -41,5 +50,6 @@ public class Insert {
 	      } catch (Exception e) {
 	      }
 	  }
+	return result;
 	}
 }

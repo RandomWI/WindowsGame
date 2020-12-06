@@ -17,7 +17,7 @@ import org.w3c.dom.Document;
 
 public class XMLReader {
 
-public String Read(String filename) {
+public String XmlToString(String filename) {
 
 	
 	

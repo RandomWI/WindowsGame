@@ -5,6 +5,7 @@ import java.util.Vector;
 import XML.XMLReader;
 import XML.XMLWriter;
 import Server.Insert;
+import Server.Select;
 
 public class Table {
 
@@ -14,6 +15,7 @@ public class Table {
     XMLWriter writer = new XMLWriter();
     XMLReader reader = new XMLReader();
     Insert sender = new Insert();
+    Select requesting = new Select();
 
     public Table(){
         windows = new Vector<>();
@@ -44,18 +46,15 @@ public class Table {
 		this.index = index;
 	}
 	
-	public void write(Table container,String filename){
+	public void save(Table container,String filename){
 	writer.Write(container);
-	String state = reader.Read(filename);
-	sender.stateToDB(filename, state);
+	String actualState = reader.XmlToString(filename);
+	sender.stateToDB(filename, actualState);
 	}
 
-	/* public void SomeMethod(String file_path){
-
-	    Publikus elérésű metódus létrehozása melyenk hatására az adatok betöltődnek xml-ből
-	    vagy adatbázisból a table osztályba.
-	    Paraméterként megkapja annak a fájlnak a nevét amit be kell töltenie.
+	public void load(String filename){
+	String returnState = requesting.select(filename);
+	System.out.println(returnState);
 	}
-	 */
 
 }

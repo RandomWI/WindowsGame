@@ -43,16 +43,15 @@ public class ButtonBar extends JPanel {
 
                 //System.out.println(PlayGround.getTable());
                 //PlayGround.getTable().write(PlayGround.getTable(),fileName);
-
-                System.out.println(table);
-                table.write(table, fileName);
+                table.save(table, fileName);
             }
         });
 
         buttonLoading.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Ide jön a tablebe beolvasás a megadott forrásból.
+            	fileName = "gameState.xml";
+              table.load(fileName);
                 LoadingToPlayGround();
                 frame.ReLoading();
             }
