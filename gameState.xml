@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Container>
     <Window Col="0" ID="0" Row="0">
-        <ButtonOne ACTIVE="true" COL="0" ROW="0"/>
+        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
         <ButtonTwo ACTIVE="true" COL="0" ROW="1"/>
         <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
         <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
