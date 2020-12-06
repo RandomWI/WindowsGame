@@ -43,4 +43,12 @@ public class Table {
 	String state = reader.Read(filename);
 	}
 
+	/* public void SomeMethod(String file_path){
+
+	    Publikus elérésű metódus létrehozása melyenk hatására az adatok betöltődnek xml-ből
+	    vagy adatbázisból a table osztályba.
+	    Paraméterként megkapja annak a fájlnak a nevét amit be kell töltenie.
+	}
+	 */
+
 }
