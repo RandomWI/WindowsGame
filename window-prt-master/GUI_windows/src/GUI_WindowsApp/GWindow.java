@@ -43,7 +43,12 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
 
         initButtonsFromContainer();
         setButtonsPosition();
-        ButtonActionListeners();
+
+        buttonOne.addActionListener(new CustomActionListener());
+        buttonTwo.addActionListener(new CustomActionListener());
+        buttonFour.addActionListener(new CustomActionListener());
+        buttonThree.addActionListener(new CustomActionListener());
+
     }
 
 
@@ -53,63 +58,46 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
         buttonSize = ButtonSizeCalc(windowSize);
         intiButton();
         setButtonsPosition();
-        ButtonActionListeners();
+
+        buttonOne.addActionListener(new CustomActionListener());
+        buttonTwo.addActionListener(new CustomActionListener());
+        buttonFour.addActionListener(new CustomActionListener());
+        buttonThree.addActionListener(new CustomActionListener());
+
     }
 
-    public void ButtonActionListeners(){
 
-        buttonOne.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ButtonAction(buttonOne);
-            }
-        });
+    class CustomActionListener implements ActionListener{
 
-        buttonTwo.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ButtonAction(buttonTwo);
-            }
-        });
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ButtonAction((GWindowButton) e.getSource());
+        }
 
-        buttonThree.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ButtonAction(buttonThree);
-            }
-        });
+        //A gombnyomások hatását kezeli.
+        public void ButtonAction(GWindowButton button){
 
-        buttonFour.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ButtonAction(buttonFour);
-            }
-        });
-    }
-
-    //A gombnyomások hatását kezeli.
-    public void ButtonAction(GWindowButton button){
-
-        if(activeButton < 2){
-            if(!button.isPressed()){
-                button.buttonPress();
-                button.setBackground(Color.YELLOW);
-                activeButton++;
-                //System.out.println(activeButton);
+            if(activeButton < 2){
+                if(!button.isPressed()){
+                    button.buttonPress();
+                    button.setBackground(Color.YELLOW);
+                    activeButton++;
+                    //System.out.println(activeButton);
+                }
+                else{
+                    button.buttonPress();
+                    button.setBackground(Color.WHITE);
+                    activeButton--;
+                    //System.out.println(activeButton);
+                }
             }
             else{
-                button.buttonPress();
-                button.setBackground(Color.WHITE);
-                activeButton--;
-                //System.out.println(activeButton);
-            }
-        }
-        else{
-            if(button.isPressed()){
-                button.buttonPress();
-                button.setBackground(Color.WHITE);
-                activeButton--;
-                //System.out.println(activeButton);
+                if(button.isPressed()){
+                    button.buttonPress();
+                    button.setBackground(Color.WHITE);
+                    activeButton--;
+                    //System.out.println(activeButton);
+                }
             }
         }
     }
