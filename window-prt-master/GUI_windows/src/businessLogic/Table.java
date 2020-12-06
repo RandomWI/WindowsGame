@@ -4,7 +4,7 @@ import java.util.Vector;
 
 import XML.XMLReader;
 import XML.XMLWriter;
-import Server.CREATE;
+import Server.Insert;
 
 public class Table {
 
@@ -13,7 +13,7 @@ public class Table {
     int counter=0;
     XMLWriter writer = new XMLWriter();
     XMLReader reader = new XMLReader();
-    CREATE sender = new CREATE();
+    Insert sender = new Insert();
 
     public Table(){
         windows = new Vector<>();
