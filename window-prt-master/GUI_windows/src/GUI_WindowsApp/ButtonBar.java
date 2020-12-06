@@ -38,9 +38,10 @@ public class ButtonBar extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SaveAction();
-                System.out.println(PlayGround.getTable());
-                PlayGround.getTable().write(PlayGround.getTable(),fileName);
-                //table.write(table, fileName);
+                //System.out.println(PlayGround.getTable());
+                //PlayGround.getTable().write(PlayGround.getTable(),fileName);
+                System.out.println(table);
+                table.write(table, fileName);
             }
         });
 
