@@ -18,10 +18,10 @@ public class ButtonBar extends JPanel {
 
 	protected JButton buttonLoading;
     protected JButton buttonSave;
-    String fileName;
+    String fileName = "";
 
     private GameFrame frame;
-    private Table table;
+    private Table table ;
 
     private JFileChooser jfc = new JFileChooser("D:");
 
@@ -39,7 +39,7 @@ public class ButtonBar extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 SaveAction();
 
-                //fileName = "gameState.xml"; //Ha ez benne van nagyon sok hibát dob.
+                fileName = "gameState.xml";
 
                 //System.out.println(PlayGround.getTable());
                 //PlayGround.getTable().write(PlayGround.getTable(),fileName);
