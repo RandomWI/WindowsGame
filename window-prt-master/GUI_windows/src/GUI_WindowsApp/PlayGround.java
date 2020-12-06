@@ -74,6 +74,13 @@ public class PlayGround extends JPanel {
     }
 
     public void generateWindows(){
+        try {
+            gWindows.clear(); // Enélkül csak bővítené a vektrot.
+            System.err.println("A vektor elemei sikeresen törölve!");
+        } catch (NullPointerException ex){
+            System.err.println("A vektor még  üres!");
+        }
+
     	
         gWindows = new Vector<>();
 
