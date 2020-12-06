@@ -1,6 +1,8 @@
 package businessLogic;
 
 import java.util.Vector;
+
+import XML.XMLReader;
 import XML.XMLWriter;
 
 public class Table {
@@ -9,6 +11,7 @@ public class Table {
     private final Vector<Window> windows;
     int counter=0;
     XMLWriter writer = new XMLWriter();
+    XMLReader reader = new XMLReader();
 
     public Table(){
         windows = new Vector<>();
@@ -35,8 +38,9 @@ public class Table {
 		this.index = index;
 	}
 	
-	public void write(Table container){
+	public void write(Table container,String filename){
 	writer.Write(container);
+	String state = reader.Read(filename);
 	}
 
 }
