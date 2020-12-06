@@ -50,6 +50,11 @@ public class GameFrame extends JFrame{
         setVisible(true);
     }
 
+    public void RebuildApp(){
+        setVisible(false);
+
+    }
+
     public void joinTable(Table table){
         this.table = table;
     }

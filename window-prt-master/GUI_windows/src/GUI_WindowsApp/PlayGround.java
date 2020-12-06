@@ -31,7 +31,17 @@ public class PlayGround extends JPanel {
         setWindowSize(numberOfWindows);
         generateWindows();
         setPlayGround();
+    }
 
+    public PlayGround(Table table){
+        super(new GridBagLayout());
+
+        numberOfWindows = gWindows.size();
+        windowSize = getWindowsSize(numberOfWindows);
+
+        joinTable(table);
+        setPlayGround();
+        gWindows.clear();
     }
 
     public void setWindowSize(int numberOfWindows){
