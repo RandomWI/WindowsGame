@@ -31,13 +31,17 @@ public class GWindowButton extends JButton implements Point, Pressable {
     @Override
     public void setPressed(boolean press) {
         this.pressed = press;
+
+        if(press)
+            setBackground(Color.YELLOW);
+        else
+            setBackground(Color.WHITE);
     }
 
     @Override
     public void buttonPress() {
         this.pressed = !pressed;
     }
-
 
 
     //A Point interfész implementálása.

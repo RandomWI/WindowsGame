@@ -4,6 +4,8 @@ import GUI_WindowsApp.GWindow;
 import GUI_WindowsApp.GWindowButton;
 import GUI_WindowsApp.PlayGround;
 
+import java.util.Vector;
+
 public class Converter {
 
     public static Window convertToWindow(GWindow visualW){
@@ -34,21 +36,21 @@ public class Converter {
     }
 
 
-    public static GWindow convertToGWindow(Window window){
+    public static GWindow convertToGWindow(Window window, int tableSize){
 
-        int numberOfWindows = window.getContainerSize();
-        int windowsSize = PlayGround.getWindowsSize(numberOfWindows);
+        int numberOfWindows = (int)Math.sqrt(tableSize);
+        int windowSize = PlayGround.getWindowSize(numberOfWindows);
 
-        GWindow modified = new GWindow(windowsSize);
+        Vector<GWindowButton> gbuttons = new Vector<>();
+
+        for(int i = 0; i < window.getContainerSize(); i++){
+            gbuttons.add(convertToGWindowButton(window.getButton(i), GWindow.ButtonSizeCalc(windowSize)));
+        }
+
+        GWindow modified = new GWindow(gbuttons, windowSize);
 
         modified.setRow(window.getRow());
         modified.setColumn(window.getColumn());
-
-        for(int i = 0; i < window.getContainerSize(); i++){
-            modified.addButton(convertToGWindowButton(window.getButton(i), modified.getButtonSize()));
-        }
-
-        modified.setButtons();
 
         return modified;
     }

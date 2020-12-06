@@ -7,6 +7,7 @@ import java.awt.*;
 
 public class GameFrame extends JFrame{
 
+
     private SizePanel sizePanel;
     private PlayGround playGround;
     private ButtonBar buttonBar;
@@ -21,6 +22,10 @@ public class GameFrame extends JFrame{
     public GameFrame(int numberOfWindows){
         super("Demo");
         setFrame(numberOfWindows);
+    }
+
+    public void ScreenSize(){
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     }
 
     public void setFrame(int numberOfWindows){

@@ -27,7 +27,8 @@ public class PlayGround extends JPanel {
 
         //joinTable(table);
 
-        setWindowSize(numberOfWindows);
+        windowSize = getWindowSize(numberOfWindows);
+        System.out.println(windowSize);
         generateWindows();
         setPlayGround();
     }
@@ -36,15 +37,14 @@ public class PlayGround extends JPanel {
         super(new GridBagLayout());
 
         numberOfWindows = gWindows.size();
-        windowSize = getWindowsSize(numberOfWindows);
 
         //joinTable(table);
         setPlayGround();
-        gWindows.clear();
+        //gWindows.clear();
     }
 
-    public void setWindowSize(int numberOfWindows){
 
+    public static int getWindowSize(int numberOfWindows){
         double screenHeight;
         double screenWidth;
 
@@ -53,24 +53,9 @@ public class PlayGround extends JPanel {
         screenWidth = screenSize.getWidth();
 
         if(screenHeight<screenWidth)
-            this.windowSize = (int)((screenHeight*1)/numberOfWindows);
+            return (int)((screenHeight*0.9)/numberOfWindows);
         else
-            this.windowSize = (int)((screenWidth*1)/numberOfWindows);
-
-    }
-
-    public static int getWindowsSize(int numberOfWindows){
-        double screenHeight;
-        double screenWidth;
-
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        screenHeight = screenSize.getHeight();
-        screenWidth = screenSize.getWidth();
-
-        if(screenHeight<screenWidth)
-            return (int)((screenHeight*1)/numberOfWindows);
-        else
-            return (int)((screenWidth*1)/numberOfWindows);
+            return (int)((screenWidth*0.9)/numberOfWindows);
     }
 
     public void generateWindows(){
@@ -136,7 +121,6 @@ public class PlayGround extends JPanel {
     }
 
      */
-
 
     public static Vector<GWindow> getGWindowsContainer(){
         return gWindows;

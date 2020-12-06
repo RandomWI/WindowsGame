@@ -52,7 +52,8 @@ public class ButtonBar extends JPanel {
         buttonLoading.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jfc.showOpenDialog(null);
+                LoadingToPlayGround();
+                frame.ReLoading();
             }
         });
     }
@@ -88,7 +89,7 @@ public class ButtonBar extends JPanel {
         GWindow gw;
 
         for(int i = 0; i < table.size(); i++){
-            gw = Converter.convertToGWindow(table.getWindow(i));
+            gw = Converter.convertToGWindow(table.getWindow(i), table.size());
             PlayGround.getGWindowsContainer().add(gw);
         }
     }
