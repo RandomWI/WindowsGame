@@ -38,6 +38,7 @@ public class ButtonBar extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SaveAction();
+                //fileName = "Proba"; Ha ez benne van nagyon sok hibát dob.
                 //System.out.println(PlayGround.getTable());
                 //PlayGround.getTable().write(PlayGround.getTable(),fileName);
                 System.out.println(table);
