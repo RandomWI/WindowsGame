@@ -40,10 +40,10 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
         for(GWindowButton gB : buttons){
             buttonContainer.add(gB);
         }
-        setButtons();
-        setButtonsPosition();
-        ButtonAction();
 
+        initButtonsFromContainer();
+        setButtonsPosition();
+        ButtonActionListeners();
     }
 
 
@@ -53,10 +53,10 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
         buttonSize = ButtonSizeCalc(windowSize);
         intiButton();
         setButtonsPosition();
-        ButtonAction();
+        ButtonActionListeners();
     }
 
-    public void ButtonAction(){
+    public void ButtonActionListeners(){
 
         buttonOne.addActionListener(new ActionListener() {
             @Override
@@ -87,6 +87,34 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
         });
     }
 
+    //A gombnyomások hatását kezeli.
+    public void ButtonAction(GWindowButton button){
+
+        if(activeButton < 2){
+            if(!button.isPressed()){
+                button.buttonPress();
+                button.setBackground(Color.YELLOW);
+                activeButton++;
+                //System.out.println(activeButton);
+            }
+            else{
+                button.buttonPress();
+                button.setBackground(Color.WHITE);
+                activeButton--;
+                //System.out.println(activeButton);
+            }
+        }
+        else{
+            if(button.isPressed()){
+                button.buttonPress();
+                button.setBackground(Color.WHITE);
+                activeButton--;
+                //System.out.println(activeButton);
+            }
+        }
+    }
+
+
     public void intiButton(){
         buttonOne = new GWindowButton(buttonSize);
         buttonTwo = new GWindowButton(buttonSize);
@@ -94,13 +122,13 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
         buttonFour = new GWindowButton(buttonSize);
     }
 
-    public static int ButtonSizeCalc(int windowSize){
-        return windowSize/4;
+    public void initButtonsFromContainer(){
+        buttonOne = buttonContainer.get(0);
+        buttonTwo = buttonContainer.get(1);
+        buttonThree = buttonContainer.get(2);
+        buttonFour = buttonContainer.get(3);
     }
 
-    public int getButtonSize(){
-        return buttonSize;
-    }
 
     public void setButtonsPosition(){
         GridBagConstraints constraints = new GridBagConstraints();
@@ -130,32 +158,14 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
         this.add(buttonFour, constraints);
     }
 
-    //A gombnyomások hatását kezeli.
-    public void ButtonAction(GWindowButton button){
-
-        if(activeButton < 2){
-            if(!button.isPressed()){
-                button.buttonPress();
-                button.setBackground(Color.YELLOW);
-                activeButton++;
-                //System.out.println(activeButton);
-            }
-            else{
-                button.buttonPress();
-                button.setBackground(Color.WHITE);
-                activeButton--;
-                //System.out.println(activeButton);
-            }
-        }
-        else{
-            if(button.isPressed()){
-                button.buttonPress();
-                button.setBackground(Color.WHITE);
-                activeButton--;
-                //System.out.println(activeButton);
-            }
-        }
+    public static int ButtonSizeCalc(int windowSize){
+        return windowSize/2;
     }
+
+    public int getButtonSize(){
+        return buttonSize;
+    }
+
 
 
     //A Point interfész implementálása.
@@ -185,6 +195,7 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
     }
 
 
+
     //A VisualButtonContainer implementálása.
     @Override
     public void setButtonContainer(){
@@ -194,13 +205,6 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
         addButton(buttonTwo);
         addButton(buttonThree);
         addButton(buttonFour);
-    }
-
-    public void setButtons(){
-        buttonOne = buttonContainer.get(0);
-        buttonTwo = buttonContainer.get(1);
-        buttonThree = buttonContainer.get(2);
-        buttonFour = buttonContainer.get(3);
     }
 
     @Override
@@ -217,7 +221,6 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
     public int getContainerSize(){
         return buttonContainer.size();
     }
-
 
 
 }
