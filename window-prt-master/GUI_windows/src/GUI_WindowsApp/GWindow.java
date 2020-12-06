@@ -32,10 +32,6 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
     private int activeButton = 0;
 
 
-    public GWindow(){
-
-    }
-
     public GWindow(Vector<GWindowButton> buttons, int windowSize){
         super(new GridBagLayout());
 

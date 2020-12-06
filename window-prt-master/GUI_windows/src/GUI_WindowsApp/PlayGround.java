@@ -53,9 +53,9 @@ public class PlayGround extends JPanel {
         screenWidth = screenSize.getWidth();
 
         if(screenHeight<screenWidth)
-            return (int)((screenHeight*0.9)/numberOfWindows);
+            return (int)((screenHeight*1)/numberOfWindows);
         else
-            return (int)((screenWidth*0.9)/numberOfWindows);
+            return (int)((screenWidth*1)/numberOfWindows);
     }
 
     public void generateWindows(){
