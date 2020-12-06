@@ -28,7 +28,7 @@ public class GameFrame extends JFrame{
 
         sizePanel = new SizePanel(this);
         playGround = new PlayGround(numberOfWindows, table);
-        buttonBar = new ButtonBar();
+        buttonBar = new ButtonBar(this, table);
 
         //Add the panels to this MainPanel
         mainPanel.add(sizePanel, BorderLayout.PAGE_START);
@@ -52,7 +52,25 @@ public class GameFrame extends JFrame{
 
     public void RebuildApp(){
         setVisible(false);
+        remove(mainPanel);
 
+        mainPanel = new JPanel(new BorderLayout()); //Nem feltétlenül szükséges új példányt létrehozni
+
+        sizePanel = new SizePanel(this); //Nem feltétlenül szükséges új példányt létrehozni
+        playGround = new PlayGround(table);
+        buttonBar = new ButtonBar(this, table); //Nem feltétlenül szükséges új példányt létrehozni
+
+        //Add the panels to this MainPanel
+        mainPanel.add(sizePanel, BorderLayout.PAGE_START);
+        mainPanel.add(playGround, BorderLayout.CENTER);
+        mainPanel.add(buttonBar, BorderLayout.PAGE_END);
+
+        add(mainPanel);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        pack();
+        setResizable(false);
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 
     public void joinTable(Table table){

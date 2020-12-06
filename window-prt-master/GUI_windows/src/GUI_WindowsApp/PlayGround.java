@@ -20,7 +20,6 @@ public class PlayGround extends JPanel {
     private static Vector<GWindow> gWindows;
     private static Table table;
 
-
     public PlayGround(int numberOfWindows, Table table){
         super(new GridBagLayout());
 
@@ -111,9 +110,10 @@ public class PlayGround extends JPanel {
             constraints.gridx = gW.getColumn();
             constraints.gridy = gW.getRow();
             add(gW, constraints);
-            setTable(Converter.convertToWindow(gW));
+            //setTable(Converter.convertToWindow(gW));
         }
     }
+
 
     public void joinTable(Table table){
         this.table = table;
@@ -123,14 +123,13 @@ public class PlayGround extends JPanel {
         table.addWindow(window);
     }
 
-    /**
-     * @return the table
-     */
+
     public static Table getTable() {
         return table;
     }
 
-    public static Vector<GWindow> getgWindowsContainer(){
+
+    public static Vector<GWindow> getGWindowsContainer(){
         return gWindows;
     }
 
