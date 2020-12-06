@@ -52,6 +52,7 @@ public class ButtonBar extends JPanel {
         buttonLoading.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //Ide jön a tablebe beolvasás a megadott forrásból.
                 LoadingToPlayGround();
                 frame.ReLoading();
             }
