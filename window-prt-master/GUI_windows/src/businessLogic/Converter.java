@@ -5,7 +5,6 @@ import GUI_WindowsApp.GWindowButton;
 
 public class Converter {
 
-
     public static Window convertToWindow(GWindow visualW){
         Window modified = new Window();
 
@@ -32,6 +31,8 @@ public class Converter {
 
         return modified;
     }
+
+
 
     public static GWindow convertToGWindow(Window window){
         GWindow modified = new GWindow();
