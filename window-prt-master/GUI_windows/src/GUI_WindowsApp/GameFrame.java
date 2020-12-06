@@ -50,7 +50,7 @@ public class GameFrame extends JFrame{
         setVisible(true);
     }
 
-    public void RebuildApp(){
+    public void ReLoading(){
         setVisible(false);
         remove(mainPanel);
 
