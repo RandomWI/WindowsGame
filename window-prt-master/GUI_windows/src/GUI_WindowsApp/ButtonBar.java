@@ -5,8 +5,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.nio.channels.FileChannel;
+import java.util.Vector;
 
 import XML.XMLWriter;
+import businessLogic.Converter;
+import businessLogic.Table;
 
 /**
  * A ButtonBar tartalmazza a pálya mentéséhez és visszatöltéséhez szükséges kezelőket.
@@ -56,4 +59,17 @@ public class ButtonBar extends JPanel {
         constraints.gridx = 1;
         add(buttonLoading, constraints);
     }
+
+
+    private void LoadingAction(){
+
+        GWindow gw;
+
+        for(int i = 0; i < PlayGround.getTable().size(); i++){
+            gw = Converter.convertToGWindow(PlayGround.getTable().getWindow(i));
+            PlayGround.getgWindowsContainer().add(gw);
+        }
+    }
+
+
 }

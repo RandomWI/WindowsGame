@@ -150,28 +150,4 @@
         <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
         <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
     </Window>
-    <Window Col="0" ID="25" Row="0">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="1" ID="26" Row="0">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="0" ID="27" Row="1">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
-    <Window Col="1" ID="28" Row="1">
-        <ButtonOne ACTIVE="false" COL="0" ROW="0"/>
-        <ButtonTwo ACTIVE="false" COL="0" ROW="1"/>
-        <ButtonThree ACTIVE="false" COL="1" ROW="0"/>
-        <ButtonFour ACTIVE="false" COL="1" ROW="1"/>
-    </Window>
 </Container>

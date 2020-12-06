@@ -17,8 +17,7 @@ public class PlayGround extends JPanel {
     private int numberOfWindows;
     private int windowSize;
 
-    private Vector<GWindow> gWindows;
-
+    private static Vector<GWindow> gWindows;
     private static Table table;
 
 
@@ -117,8 +116,12 @@ public class PlayGround extends JPanel {
     /**
      * @return the table
      */
-    static Table getTable() {
+    public static Table getTable() {
         return table;
+    }
+
+    public static Vector<GWindow> getgWindowsContainer(){
+        return gWindows;
     }
 
 }
