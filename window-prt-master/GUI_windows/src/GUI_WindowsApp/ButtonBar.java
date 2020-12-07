@@ -51,7 +51,12 @@ public class ButtonBar extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
             	fileName = "gameState.xml";
-              table.load(fileName);
+              try {
+				table.load(fileName);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
                 LoadingToPlayGround();
                 frame.ReLoading();
             }

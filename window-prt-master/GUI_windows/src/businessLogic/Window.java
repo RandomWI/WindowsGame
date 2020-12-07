@@ -65,7 +65,7 @@ public class Window implements Point, BasicButtonContainer {
  	/**
  	 * @param buttonContainer the buttonContainer to set
  	 */
- 	private void setButtonContainer(Vector<Button> buttonContainer) {
+ 	public void setButtonContainer(Vector<Button> buttonContainer) {
  		this.buttonContainer = buttonContainer;
  	}
 

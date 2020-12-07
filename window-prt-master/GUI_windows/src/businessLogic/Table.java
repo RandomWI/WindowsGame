@@ -1,8 +1,18 @@
 package businessLogic;
 
+import java.io.StringWriter;
 import java.util.Vector;
 
-import XML.XMLReader;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Document;
+
+import XML.CreateTableClassFromXml;
+import XML.StringParseToXML;
+import XML.XMLParseToString;
 import XML.XMLWriter;
 import Server.Insert;
 import Server.Select;
@@ -13,7 +23,9 @@ public class Table {
     private Vector<Window> windows;
     int counter=0;
     XMLWriter writer = new XMLWriter();
-    XMLReader reader = new XMLReader();
+    XMLParseToString reader = new XMLParseToString();
+    StringParseToXML parser = new StringParseToXML();
+    CreateTableClassFromXml returner = new CreateTableClassFromXml();
     Insert sender = new Insert();
     Select requesting = new Select();
 
@@ -52,9 +64,11 @@ public class Table {
 	sender.stateToDB(filename, actualState);
 	}
 
-	public void load(String filename){
+	public void load(String filename) throws Exception{
 	String returnState = requesting.select(filename);
-	System.out.println(returnState);
+	parser.loadXMLFromString(returnState,filename);
+	// This is the Nxt 
+	Table test = returner.TableCreator(filename);
 	}
 
 }
