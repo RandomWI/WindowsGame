@@ -1,6 +1,9 @@
 package GUI_WindowsApp;
 
 import javax.swing.*;
+
+import Server.SelectNames;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,6 +27,11 @@ public class ButtonBar extends JPanel {
     private Table table ;
 
     private JFileChooser jfc = new JFileChooser("D:");
+    JComboBox JCNameList;
+    private JLabel labelSize;
+    private JTextField textSize;
+    SelectNames doNameList =  new SelectNames();
+    String actualFile = "";
 
     
     public ButtonBar(GameFrame frame, Table table){
@@ -39,20 +47,28 @@ public class ButtonBar extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 SaveAction();
 
-                fileName = "gameState.xml";
+                fileName = textSize.getText();
 
                 //System.out.println(PlayGround.getTable());
                 //PlayGround.getTable().write(PlayGround.getTable(),fileName);
+                if(fileName != null) {
+                fileName = fileName + ".xml";
                 table.save(table, fileName);
+                String[] nameList = doNameList.select();
+                JCNameList = new JComboBox(nameList);
+                int size = nameList.length;
+                JCNameList.setSelectedIndex(size-1);
+                }
+                else {System.out.println("Kérem adjon meg egy fájl nevet!");}
             }
         });
 
         buttonLoading.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	fileName = "gameState.xml";
+            	
               try {
-				table.load(fileName);
+				table.load(actualFile);
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -61,11 +77,30 @@ public class ButtonBar extends JPanel {
                 frame.ReLoading();
             }
         });
+        
+        JCNameList.addActionListener(new ActionListener() {
+
+        	public void actionPerformed(ActionEvent e) {
+            	JComboBox cb = (JComboBox)e.getSource();
+                actualFile = (String)cb.getSelectedItem();
+            }
+        });
     }
     
     public void setButtonBar(){
     	buttonSave = new JButton("Mentés");
         buttonLoading = new JButton("Betöltés");
+        labelSize = new JLabel("Adja meg a fájl nevét (max 10 karakter): ");
+        textSize = new JTextField(10);
+        String[] nameList = doNameList.select();
+
+      //Create the combo box, select item at index 4.
+      //Indices start at 0, so 4 specifies the pig.
+        if(nameList.length > 0) {
+      JCNameList = new JComboBox(nameList);
+      int size = nameList.length;
+      JCNameList.setSelectedIndex(size-1);
+        }
 
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.anchor = GridBagConstraints.WEST;
@@ -73,10 +108,19 @@ public class ButtonBar extends JPanel {
 
         constraints.gridx = 0;
         constraints.gridy = 0;
-        add(buttonSave, constraints);
+        add(labelSize, constraints);
 
         constraints.gridx = 1;
+        add(textSize, constraints);
+        
+        constraints.gridx = 2;
+        add(buttonSave, constraints);
+
+        constraints.gridx = 3;
         add(buttonLoading, constraints);
+        
+        constraints.gridx = 4;
+        add(JCNameList, constraints);
     }
 
     private void SaveAction(){
@@ -88,6 +132,8 @@ public class ButtonBar extends JPanel {
     }
 
 
+    
+    
     private void LoadingToPlayGround(){
         PlayGround.getGWindowsContainer().clear(); //Törli a már benne lévő tartalmat mielőtt rátöltené.
 

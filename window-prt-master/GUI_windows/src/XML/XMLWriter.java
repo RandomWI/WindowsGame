@@ -25,9 +25,8 @@ import businessLogic.Window;
 
 public class XMLWriter {
 
-	public static final String xmlFilePath = "gameState.xml";
 
-	public void Write(Table container) {
+	public void Write(Table container,String xmlFilePath) {
 
 		Window fluffyWindow = new Window();
 		Vector<Button> buttonContainer;

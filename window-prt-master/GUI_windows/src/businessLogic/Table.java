@@ -15,7 +15,7 @@ import XML.StringParseToXML;
 import XML.XMLParseToString;
 import XML.XMLWriter;
 import Server.Insert;
-import Server.Select;
+import Server.SelectState;
 
 public class Table {
 
@@ -27,7 +27,7 @@ public class Table {
     StringParseToXML parser = new StringParseToXML();
     CreateTableClassFromXml returner = new CreateTableClassFromXml();
     Insert sender = new Insert();
-    Select requesting = new Select();
+    SelectState requesting = new SelectState();
 
     public Table(){
         windows = new Vector<>();
@@ -59,7 +59,7 @@ public class Table {
 	}
 	
 	public void save(Table container,String filename){
-	writer.Write(container);
+	writer.Write(container,filename);
 	String actualState = reader.XmlToString(filename);
 	sender.stateToDB(filename, actualState);
 	}

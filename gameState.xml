@@ -1,52 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Container>
-        
     <Window Col="0" ID="0" Row="0">
-                
         <Button ACTIVE="false" COL="0" ROW="0"/>
-                
-        <Button ACTIVE="true" COL="0" ROW="1"/>
-                
-        <Button ACTIVE="false" COL="1" ROW="0"/>
-                
-        <Button ACTIVE="false" COL="1" ROW="1"/>
-            
-    </Window>
-        
-    <Window Col="1" ID="1" Row="0">
-                
-        <Button ACTIVE="false" COL="0" ROW="0"/>
-                
         <Button ACTIVE="false" COL="0" ROW="1"/>
-                
+        <Button ACTIVE="false" COL="1" ROW="0"/>
+        <Button ACTIVE="true" COL="1" ROW="1"/>
+    </Window>
+    <Window Col="1" ID="1" Row="0">
+        <Button ACTIVE="false" COL="0" ROW="0"/>
+        <Button ACTIVE="false" COL="0" ROW="1"/>
+        <Button ACTIVE="false" COL="1" ROW="0"/>
+        <Button ACTIVE="false" COL="1" ROW="1"/>
+    </Window>
+    <Window Col="2" ID="2" Row="0">
+        <Button ACTIVE="false" COL="0" ROW="0"/>
+        <Button ACTIVE="false" COL="0" ROW="1"/>
         <Button ACTIVE="true" COL="1" ROW="0"/>
-                
         <Button ACTIVE="false" COL="1" ROW="1"/>
-            
     </Window>
-        
-    <Window Col="0" ID="2" Row="1">
-                
+    <Window Col="0" ID="3" Row="1">
         <Button ACTIVE="false" COL="0" ROW="0"/>
-                
-        <Button ACTIVE="true" COL="0" ROW="1"/>
-                
+        <Button ACTIVE="false" COL="0" ROW="1"/>
         <Button ACTIVE="false" COL="1" ROW="0"/>
-                
-        <Button ACTIVE="false" COL="1" ROW="1"/>
-            
+        <Button ACTIVE="true" COL="1" ROW="1"/>
     </Window>
-        
-    <Window Col="1" ID="3" Row="1">
-                
+    <Window Col="1" ID="4" Row="1">
         <Button ACTIVE="false" COL="0" ROW="0"/>
-                
         <Button ACTIVE="true" COL="0" ROW="1"/>
-                
         <Button ACTIVE="false" COL="1" ROW="0"/>
-                
         <Button ACTIVE="false" COL="1" ROW="1"/>
-            
     </Window>
-    
+    <Window Col="2" ID="5" Row="1">
+        <Button ACTIVE="false" COL="0" ROW="0"/>
+        <Button ACTIVE="false" COL="0" ROW="1"/>
+        <Button ACTIVE="false" COL="1" ROW="0"/>
+        <Button ACTIVE="false" COL="1" ROW="1"/>
+    </Window>
+    <Window Col="0" ID="6" Row="2">
+        <Button ACTIVE="false" COL="0" ROW="0"/>
+        <Button ACTIVE="true" COL="0" ROW="1"/>
+        <Button ACTIVE="false" COL="1" ROW="0"/>
+        <Button ACTIVE="false" COL="1" ROW="1"/>
+    </Window>
+    <Window Col="1" ID="7" Row="2">
+        <Button ACTIVE="false" COL="0" ROW="0"/>
+        <Button ACTIVE="true" COL="0" ROW="1"/>
+        <Button ACTIVE="false" COL="1" ROW="0"/>
+        <Button ACTIVE="false" COL="1" ROW="1"/>
+    </Window>
+    <Window Col="2" ID="8" Row="2">
+        <Button ACTIVE="true" COL="0" ROW="0"/>
+        <Button ACTIVE="false" COL="0" ROW="1"/>
+        <Button ACTIVE="false" COL="1" ROW="0"/>
+        <Button ACTIVE="false" COL="1" ROW="1"/>
+    </Window>
 </Container>

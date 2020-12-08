@@ -12,7 +12,7 @@ import com.mysql.cj.xdevapi.Statement;
 
 import businessLogic.idGenerator;
 
-public class Select {
+public class SelectState {
 
 	   static final String DB_URL = "jdbc:mysql://127.0.0.1/states";
 
