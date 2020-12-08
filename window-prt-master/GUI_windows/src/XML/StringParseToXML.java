@@ -21,19 +21,18 @@ import org.xml.sax.SAXException;
 
 public class StringParseToXML{
 
-	public void loadXMLFromString(String xml,String xmlFilePath) throws ParserConfigurationException, SAXException, IOException, TransformerException{
+	public Document loadXMLFromString(String xml) throws ParserConfigurationException, SAXException, IOException, TransformerException{
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = factory.newDocumentBuilder();
 		InputSource is = new InputSource(new StringReader(xml));
-		TransformerFactory transformerFactory = TransformerFactory.newInstance();
-		Transformer transformer = transformerFactory.newTransformer();
 		
 		Document doc = builder.parse(is);
-		DOMSource domSource = new DOMSource(doc);
-		StreamResult streamResult = new StreamResult(new File(xmlFilePath));
-		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+		//DOMSource domSource = new DOMSource(doc);
+		//StreamResult streamResult = new StreamResult(new File(xmlFilePath));
+		//transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 
-		transformer.transform(domSource, streamResult);
+		//transformer.transform(domSource, streamResult);
+		return doc;
 	}
 	
 }

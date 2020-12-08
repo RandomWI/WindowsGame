@@ -10,6 +10,9 @@ import java.util.Vector;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathFactory;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -23,64 +26,91 @@ import businessLogic.Window;
 
 public class CreateTableClassFromXml {
 
-	public Table TableCreator(String filename) throws IOException {
-		
-		String filePath = filename;
-        File xmlFile = new File(filePath);
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder dBuilder;
-        Vector<Button> buttonContainer = new Vector<>();
+	public Table TableCreator(Document doc) throws IOException {
+
+		//String filePath = filename;
+		//File xmlFile = new File(filePath);
+		//DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+		//DocumentBuilder dBuilder;
+		Vector<Button> buttonContainer = new Vector<>();
 		Table table = new Table();
-		Window window = new Window();
+		Window window;
 		Vector<Window> windows = new Vector<>();
-		
-        try {
-            dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(xmlFile);
-            doc.getDocumentElement().normalize();
-	
-		System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
-		NodeList nodeList = doc.getElementsByTagName("Window");
+		Button one;
+		Button two;
+		Button three;
+		Button four;
 
-		for (int i = 0; i < nodeList.getLength(); i++) {
+		try {
+			//dBuilder = dbFactory.newDocumentBuilder();
+			//Document doc = dBuilder.parse(xmlFile);
+			doc.getDocumentElement().normalize();
 
-		/*	if (nodeList.item(i).getNodeType() == Node.ELEMENT_NODE) {
-				Element element = (Element) nodeList.item(i);
-				window.setColumn(Integer.parseInt(getTagValue("Col", element)));
-				System.out.println(window.getColumn());
-				window.setRow(Integer.parseInt(getTagValue("Row", element)));
-				System.out.println(window.getRow());
-			}*/
-			
-			buttonContainer.clear();
-			NodeList nodeListButton = doc.getElementsByTagName("Button");
-			for (int y = 0; y < nodeListButton.getLength(); y++) {
-				buttonContainer.add(getButton(nodeList.item(y)));
+			System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+
+			NodeList nodeList = doc.getElementsByTagName("Window");
+			System.out.println(nodeList.item(0).getAttributes().item(0).getNodeName());
+			System.out.println(nodeList.item(0).getAttributes().item(1).getNodeName());
+			System.out.println(nodeList.item(0).getAttributes().item(2).getNodeName());
+			System.out.println(nodeList.item(3).getNodeValue());
+			// NodeList list = ((Document) nodeList).getElementsByTagName("Button");
+
+			for (int i = 0; i < nodeList.getLength(); i++) {
+				window = new Window();
+				one = new Button();
+				two = new Button();
+				three = new Button();
+				four = new Button();
+				
+				window.setColumn(Integer.parseInt(nodeList.item(i).getAttributes().item(0).getNodeValue()));
+				window.setRow(Integer.parseInt(nodeList.item(i).getAttributes().item(2).getNodeValue()));
+				buttonContainer.clear();
+				NodeList childList = nodeList.item(i).getChildNodes();
+				int counter = 0;
+				for (int j = 0; j < childList.getLength(); j++) {
+
+					Node child = childList.item(j);
+					if (!child.getNodeName().equals("#text")) {
+						switch (counter) {
+						case 0:
+							buttonContainer.add(getButton(child, one));
+							break;
+						case 1:
+							buttonContainer.add(getButton(child, two));
+							break;
+						case 2:
+							buttonContainer.add(getButton(child, three));
+							break;
+						case 3:
+							buttonContainer.add(getButton(child, four));
+							break;
+						}
+						
+						counter++;
+						//System.out.println(child.getNodeName() + " -> " + child.getAttributes().item(0).getNodeValue());
+					}
+				}
+				window.setButtonContainer(buttonContainer);
+				table.addWindow(window);
 			}
-			window.setButtonContainer(buttonContainer);
-			table.addWindow(window);
-		}
-        }catch (Exception e) {
+
+		} catch (Exception e) {
 			// TODO: handle exception
 		}
-        
+
 		return table;
 
 	}
 
-	private static Button getButton(Node node) {
-		// XMLReaderDOM domReader = new XMLReaderDOM();
-		Button item = new Button();
-		if (node.getNodeType() == Node.ELEMENT_NODE) {
-			Element element = (Element) node;
-			item.setPressed(Boolean.parseBoolean(getTagValue("ACTIVE", element)));
-			item.setColumn(Integer.parseInt(getTagValue("COL", element)));
-			item.setRow(Integer.parseInt(getTagValue("ROW", element)));
-		}
+	private static Button getButton(Node node, Button but) {
 
-		return item;
+		but.setPressed(Boolean.parseBoolean(node.getAttributes().item(0).getNodeValue()));
+		but.setColumn(Integer.parseInt(node.getAttributes().item(1).getNodeValue()));
+		but.setRow(Integer.parseInt(node.getAttributes().item(2).getNodeValue()));
+
+		return but;
 	}
-	
+
 	private static String getTagValue(String tag, Element element) {
 		NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();
 		Node node = (Node) nodeList.item(0);

@@ -66,9 +66,9 @@ public class Table {
 
 	public void load(String filename) throws Exception{
 	String returnState = requesting.select(filename);
-	parser.loadXMLFromString(returnState,filename);
-	// This is the Nxt 
-	Table test = returner.TableCreator(filename);
+	Document doc = parser.loadXMLFromString(returnState);
+	Table test = returner.TableCreator(doc);
+	this.windows = test.windows;
 	}
 
 }
