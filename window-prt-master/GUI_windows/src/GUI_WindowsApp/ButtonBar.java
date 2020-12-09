@@ -79,7 +79,7 @@ public class ButtonBar extends JPanel {
         });
         
         JCNameList.addActionListener(new ActionListener() {
-
+            @Override
         	public void actionPerformed(ActionEvent e) {
             	JComboBox cb = (JComboBox)e.getSource();
                 actualFile = (String)cb.getSelectedItem();
@@ -96,11 +96,19 @@ public class ButtonBar extends JPanel {
 
       //Create the combo box, select item at index 4.
       //Indices start at 0, so 4 specifies the pig.
+
+        /*
         if(nameList.length > 0) {
-      JCNameList = new JComboBox(nameList);
-      int size = nameList.length;
-      JCNameList.setSelectedIndex(size-1);
+              JCNameList = new JComboBox(nameList);
+              int size = nameList.length;
+              JCNameList.setSelectedIndex(size-1);
         }
+
+         */
+
+        JCNameList = new JComboBox(nameList);
+        int size = nameList.length;
+        JCNameList.setSelectedIndex(size-1);
 
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.anchor = GridBagConstraints.WEST;
@@ -118,9 +126,11 @@ public class ButtonBar extends JPanel {
 
         constraints.gridx = 3;
         add(buttonLoading, constraints);
-        
+
+
         constraints.gridx = 4;
         add(JCNameList, constraints);
+
     }
 
     private void SaveAction(){
