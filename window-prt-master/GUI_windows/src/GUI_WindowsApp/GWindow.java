@@ -39,6 +39,8 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
 
         for(GWindowButton gB : buttons){
             buttonContainer.add(gB);
+            if(gB.isPressed())
+                activeButton++;
         }
 
         initButtonsFromContainer();
