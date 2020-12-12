@@ -32,7 +32,7 @@ public class CreateTableClassFromXml {
 		//File xmlFile = new File(filePath);
 		//DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		//DocumentBuilder dBuilder;
-		Vector<Button> buttonContainer = new Vector<>();
+		Vector<Button> buttonContainer;
 		Table table = new Table();
 		Window window;
 		Vector<Window> windows = new Vector<>();
@@ -61,6 +61,7 @@ public class CreateTableClassFromXml {
 				two = new Button();
 				three = new Button();
 				four = new Button();
+				buttonContainer = new Vector<>();
 				
 				window.setColumn(Integer.parseInt(nodeList.item(i).getAttributes().item(0).getNodeValue()));
 				window.setRow(Integer.parseInt(nodeList.item(i).getAttributes().item(2).getNodeValue()));

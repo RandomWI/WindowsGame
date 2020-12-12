@@ -13,6 +13,7 @@ public class GWindowButton extends JButton implements Point, Pressable {
     private int column;
 
     private boolean pressed = false;
+    private boolean hidePressed = false;
 
 
     public GWindowButton(int buttonSize){
@@ -69,5 +70,14 @@ public class GWindowButton extends JButton implements Point, Pressable {
         this.row = row;
         this.column = column;
     }
+
+	public boolean isHidePressed() {
+		return hidePressed;
+	}
+
+	public void setHidePressed(boolean hidePressed) {
+		this.hidePressed = hidePressed;
+		
+	}
 
 }

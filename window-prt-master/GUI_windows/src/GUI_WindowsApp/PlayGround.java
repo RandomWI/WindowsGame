@@ -16,6 +16,7 @@ public class PlayGround extends JPanel {
 
     private int numberOfWindows;
     private int windowSize;
+    Window manager;
 
     private static Vector<GWindow> gWindows;
     //private static Table table;
@@ -29,8 +30,10 @@ public class PlayGround extends JPanel {
 
         windowSize = getWindowSize(numberOfWindows);
         System.out.println(windowSize);
+        manager = new Window();
         generateWindows();
         setPlayGround();
+        manager.windowsHandler(gWindows);
     }
 
     public PlayGround(Table table){

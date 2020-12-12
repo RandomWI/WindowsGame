@@ -3,7 +3,7 @@ package GUI_WindowsApp;
 
 import Abstract.Point;
 import Abstract.VisualButtonContainer;
-
+import businessLogic.Window;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,10 +17,12 @@ import java.util.Vector;
  */
 public class GWindow extends JPanel implements Point, VisualButtonContainer{
 
+
+
 	private int row;
     private int column;
-
-    private Vector<GWindowButton> buttonContainer = new Vector<>();
+    private Window WManager = new Window();
+    public Vector<GWindowButton> buttonContainer = new Vector<>();
 
 
     private GWindowButton buttonOne;
@@ -212,6 +214,36 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
         return buttonContainer.size();
     }
 
+	/**
+	 * @return the buttonOne
+	 */
+	public GWindowButton getButtonOne() {
+		return buttonOne;
+	}
+
+
+	/**
+	 * @return the buttonTwo
+	 */
+	public GWindowButton getButtonTwo() {
+		return buttonTwo;
+	}
+
+
+	/**
+	 * @return the buttonThree
+	 */
+	public GWindowButton getButtonThree() {
+		return buttonThree;
+	}
+
+
+	/**
+	 * @return the buttonFour
+	 */
+	public GWindowButton getButtonFour() {
+		return buttonFour;
+	}
 
 }
 

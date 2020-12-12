@@ -8,6 +8,7 @@ public class Button implements Point, Pressable {
     private int row;
     private int column;
     private boolean pressed;
+    private boolean preState;
 
     public Button(){
         super();
@@ -55,5 +56,13 @@ public class Button implements Point, Pressable {
     public void setColumn(int column) {
         this.column = column;
     }
+
+	public boolean isPreState() {
+		return preState;
+	}
+
+	public void setPreState(boolean preState) {
+		this.preState = preState;
+	}
 
 }

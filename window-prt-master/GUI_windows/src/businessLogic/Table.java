@@ -28,6 +28,7 @@ public class Table {
     CreateTableClassFromXml returner = new CreateTableClassFromXml();
     Insert sender = new Insert();
     SelectState requesting = new SelectState();
+    
 
     public Table(){
         windows = new Vector<>();
@@ -66,6 +67,7 @@ public class Table {
 
 	public void load(String filename) throws Exception{
 	String returnState = requesting.select(filename);
+	System.out.println(returnState);
 	Document doc = parser.loadXMLFromString(returnState);
 	Table test = returner.TableCreator(doc);
 	this.windows = test.windows;
