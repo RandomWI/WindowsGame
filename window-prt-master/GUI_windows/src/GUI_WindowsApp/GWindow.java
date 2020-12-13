@@ -19,7 +19,6 @@ import java.util.Vector;
 public class GWindow extends JPanel implements Point, VisualButtonContainer{
 
 
-
 	private int row;
     private int column;
     private Window WManager = new Window();
@@ -43,8 +42,11 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
 
         for(GWindowButton gB : buttons){
             buttonContainer.add(gB);
-            if(gB.isPressed())
+            if(gB.isPressed()){
                 activeButton++;
+                PlayGround.pressIn();
+            }
+
         }
 
         initButtonsFromContainer();
@@ -83,21 +85,24 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
         //A gombnyomások hatását kezeli.
         public void ButtonAction(GWindowButton button){
 
-        	
             if(activeButton < 2){
                 if(!button.isPressed()){
                     button.buttonPress();
                     button.setBackground(Color.YELLOW);
                     activeButton++;
+
+                    PlayGround.pressIn();
+
                     guard.morePush(true);
-                    //System.out.println(activeButton);
                 }
                 else{
                     button.buttonPress();
                     button.setBackground(Color.WHITE);
                     activeButton--;
+
+                    PlayGround.pressOut();
+
                     guard.morePush(false);
-                    //System.out.println(activeButton);
                 }
             }
             else{
@@ -105,9 +110,13 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
                     button.buttonPress();
                     button.setBackground(Color.WHITE);
                     activeButton--;
-                    //System.out.println(activeButton);
+
+                    PlayGround.pressOut();
                 }
             }
+
+            //PlayGround.checkPressCounter(); //Leellenőrzi hogy elérte a már a megfadott kattintást.
+
         }
     }
 

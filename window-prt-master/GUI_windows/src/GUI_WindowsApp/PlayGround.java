@@ -13,6 +13,7 @@ import java.util.Vector;
  */
 public class PlayGround extends JPanel {
 
+    private static int pressCounter = 0;
 
     private int numberOfWindows;
     private int windowSize;
@@ -42,6 +43,7 @@ public class PlayGround extends JPanel {
         numberOfWindows = gWindows.size();
 
         joinTable(table);
+
         setPlayGround();
         //gWindows.clear();
     }
@@ -62,6 +64,7 @@ public class PlayGround extends JPanel {
     }
 
     public void generateWindows(){
+
         try {
             gWindows.clear(); // Enélkül csak bővítené a vektrot.
             System.err.println("A vektor elemei sikeresen törölve!");
@@ -122,6 +125,26 @@ public class PlayGround extends JPanel {
     public static Table getTable() {
         return table;
     }
+
+
+
+    public static void pressIn(){
+        pressCounter++;
+    }
+
+    public static void pressOut(){
+        pressCounter--;
+    }
+
+    /*
+    public void checkPressCounter(){
+         if(pressCounter == x){
+            presscounter = 0 // fontos mert statikus mező!
+            tetszőleges fv. hívása a table osztályból
+         }
+    }
+     */
+
 
 
     public static Vector<GWindow> getGWindowsContainer(){
