@@ -19,14 +19,14 @@ public class PlayGround extends JPanel {
     Window manager;
 
     private static Vector<GWindow> gWindows;
-    //private static Table table;
+    private static Table table;
 
     public PlayGround(int numberOfWindows, Table table){
         super(new GridBagLayout());
 
         this.numberOfWindows = numberOfWindows;
 
-        //joinTable(table);
+        joinTable(table);
 
         windowSize = getWindowSize(numberOfWindows);
         System.out.println(windowSize);
@@ -41,7 +41,7 @@ public class PlayGround extends JPanel {
 
         numberOfWindows = gWindows.size();
 
-        //joinTable(table);
+        joinTable(table);
         setPlayGround();
         //gWindows.clear();
     }
@@ -109,7 +109,7 @@ public class PlayGround extends JPanel {
         }
     }
 
-    /*
+
     public void joinTable(Table table){
         this.table = table;
     }
@@ -123,7 +123,6 @@ public class PlayGround extends JPanel {
         return table;
     }
 
-     */
 
     public static Vector<GWindow> getGWindowsContainer(){
         return gWindows;
