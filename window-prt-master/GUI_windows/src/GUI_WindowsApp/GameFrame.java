@@ -54,6 +54,7 @@ public class GameFrame extends JFrame{
         remove(mainPanel);
         setFrame(numberOfWindows);
         setVisible(true);
+        Table.setPressCounter(0);
     }
 
     public void ReLoading(){
@@ -61,7 +62,7 @@ public class GameFrame extends JFrame{
         remove(mainPanel);
 
         mainPanel = new JPanel(new BorderLayout()); //Nem feltétlenül szükséges új példányt létrehozni
-
+        //Table.setPressCounter(0);
         sizePanel = new SizePanel(this); //Nem feltétlenül szükséges új példányt létrehozni
         playGround = new PlayGround(table);
         buttonBar = new ButtonBar(this, table); //Nem feltétlenül szükséges új példányt létrehozni

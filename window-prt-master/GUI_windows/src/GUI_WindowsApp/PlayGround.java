@@ -13,7 +13,7 @@ import java.util.Vector;
  */
 public class PlayGround extends JPanel {
 
-    private static int pressCounter = 0;
+    
 
     private int numberOfWindows;
     private int windowSize;
@@ -97,7 +97,8 @@ public class PlayGround extends JPanel {
     public void setPlayGround(){
 
         setBackground(Color.BLACK);
-
+       
+        Table.gameFinished=false;
         //Create constraints
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.anchor = GridBagConstraints.WEST;
@@ -128,13 +129,7 @@ public class PlayGround extends JPanel {
 
 
 
-    public static void pressIn(){
-        pressCounter++;
-    }
-
-    public static void pressOut(){
-        pressCounter--;
-    }
+    
 
     /*
     public void checkPressCounter(){

@@ -1,6 +1,5 @@
 package GUI_WindowsApp;
 
-
 import Abstract.Point;
 import Abstract.VisualButtonContainer;
 import businessLogic.Table;
@@ -13,220 +12,211 @@ import java.awt.event.ActionListener;
 import java.util.Vector;
 
 /**
- * Egy GWindow osztályból példányosított objektum négy GWindowButton objketumot foglal magába.
- * A JPanel osztály kiterjesztése.
+ * Egy GWindow osztályból példányosított objektum négy GWindowButton objketumot
+ * foglal magába. A JPanel osztály kiterjesztése.
  */
-public class GWindow extends JPanel implements Point, VisualButtonContainer{
-
+public class GWindow extends JPanel implements Point, VisualButtonContainer {
 
 	private int row;
-    private int column;
-    private Window WManager = new Window();
-    public Vector<GWindowButton> buttonContainer = new Vector<>();
+	private int column;
+	private Window WManager = new Window();
+	public Vector<GWindowButton> buttonContainer = new Vector<>();
 
+	private GWindowButton buttonOne;
+	private GWindowButton buttonTwo;
+	private GWindowButton buttonThree;
+	private GWindowButton buttonFour;
 
-    private GWindowButton buttonOne;
-    private GWindowButton buttonTwo;
-    private GWindowButton buttonThree;
-    private GWindowButton buttonFour;
+	private int buttonSize;
+	private int activeButton = 0;
+	Table guard = new Table();
 
-    private int buttonSize;
-    private int activeButton = 0;
-    Table guard = new Table();
+	public GWindow(Vector<GWindowButton> buttons, int windowSize) {
+		super(new GridBagLayout());
 
+		buttonSize = ButtonSizeCalc(windowSize);
 
-    public GWindow(Vector<GWindowButton> buttons, int windowSize){
-        super(new GridBagLayout());
+		for (GWindowButton gB : buttons) {
+			buttonContainer.add(gB);
+			if (gB.isPressed()) {
+				activeButton++;
+				//guard.pressIn();
+				
+			}
 
-        buttonSize = ButtonSizeCalc(windowSize);
+		}
 
-        for(GWindowButton gB : buttons){
-            buttonContainer.add(gB);
-            if(gB.isPressed()){
-                activeButton++;
-                PlayGround.pressIn();
-            }
+		initButtonsFromContainer();
+		setButtonsPosition();
 
-        }
+		buttonOne.addActionListener(new CustomActionListener());
+		buttonTwo.addActionListener(new CustomActionListener());
+		buttonFour.addActionListener(new CustomActionListener());
+		buttonThree.addActionListener(new CustomActionListener());
 
-        initButtonsFromContainer();
-        setButtonsPosition();
+	}
 
-        buttonOne.addActionListener(new CustomActionListener());
-        buttonTwo.addActionListener(new CustomActionListener());
-        buttonFour.addActionListener(new CustomActionListener());
-        buttonThree.addActionListener(new CustomActionListener());
+	public GWindow(int windowSize) {
+		super(new GridBagLayout());
 
-    }
+		buttonSize = ButtonSizeCalc(windowSize);
+		intiButton();
+		setButtonsPosition();
 
+		buttonOne.addActionListener(new CustomActionListener());
+		buttonTwo.addActionListener(new CustomActionListener());
+		buttonFour.addActionListener(new CustomActionListener());
+		buttonThree.addActionListener(new CustomActionListener());
 
-    public GWindow(int windowSize){
-        super(new GridBagLayout());
+	}
 
-        buttonSize = ButtonSizeCalc(windowSize);
-        intiButton();
-        setButtonsPosition();
+	class CustomActionListener implements ActionListener {
 
-        buttonOne.addActionListener(new CustomActionListener());
-        buttonTwo.addActionListener(new CustomActionListener());
-        buttonFour.addActionListener(new CustomActionListener());
-        buttonThree.addActionListener(new CustomActionListener());
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			ButtonAction((GWindowButton) e.getSource());
+		}
 
-    }
+		// A gombnyomások hatását kezeli.
+		public void ButtonAction(GWindowButton button) {
+			if (Table.gameFinished == false) {
+				if (activeButton < 2) {
+					if (!button.isPressed()) {
+						button.buttonPress();
+						button.setBackground(Color.YELLOW);
+						activeButton++;
 
+						guard.pressIn();
+						guard.morePush(true);
 
-    class CustomActionListener implements ActionListener{
+						guard.endGame(PlayGround.getGWindowsContainer());
+						System.out.println();
+					} else {
+						button.buttonPress();
+						button.setBackground(Color.WHITE);
+						activeButton--;
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            ButtonAction((GWindowButton) e.getSource());
-        }
+						guard.pressOut();
+						
+						guard.morePush(false);
+					}
+				} else {
+					if (button.isPressed()) {
+						button.buttonPress();
+						button.setBackground(Color.WHITE);
+						activeButton--;
 
-        //A gombnyomások hatását kezeli.
-        public void ButtonAction(GWindowButton button){
+						guard.pressOut();
+					}
+				}
 
-            if(activeButton < 2){
-                if(!button.isPressed()){
-                    button.buttonPress();
-                    button.setBackground(Color.YELLOW);
-                    activeButton++;
+				// PlayGround.checkPressCounter(); //Leellenőrzi hogy elérte a már a megfadott
+				// kattintást.
+			}
+		}
+	}
 
-                    PlayGround.pressIn();
+	public void intiButton() {
+		buttonOne = new GWindowButton(buttonSize);
+		buttonTwo = new GWindowButton(buttonSize);
+		buttonThree = new GWindowButton(buttonSize);
+		buttonFour = new GWindowButton(buttonSize);
+	}
 
-                    guard.morePush(true);
-                }
-                else{
-                    button.buttonPress();
-                    button.setBackground(Color.WHITE);
-                    activeButton--;
+	public void initButtonsFromContainer() {
+		buttonOne = buttonContainer.get(0);
+		buttonTwo = buttonContainer.get(1);
+		buttonThree = buttonContainer.get(2);
+		buttonFour = buttonContainer.get(3);
+	}
 
-                    PlayGround.pressOut();
+	public void setButtonsPosition() {
+		GridBagConstraints constraints = new GridBagConstraints();
+		constraints.anchor = GridBagConstraints.WEST;
+		constraints.insets = new Insets(0, 0, 0, 0);
 
-                    guard.morePush(false);
-                }
-            }
-            else{
-                if(button.isPressed()){
-                    button.buttonPress();
-                    button.setBackground(Color.WHITE);
-                    activeButton--;
+		// buttonOne
+		constraints.gridx = 0;
+		constraints.gridy = 0;
+		buttonOne.setCoordinate(0, 0);
+		this.add(buttonOne, constraints);
 
-                    PlayGround.pressOut();
-                }
-            }
+		// buttonTwo
+		constraints.gridx = 1;
+		buttonTwo.setCoordinate(1, 0);
+		this.add(buttonTwo, constraints);
 
-            //PlayGround.checkPressCounter(); //Leellenőrzi hogy elérte a már a megfadott kattintást.
+		// buttonThree
+		constraints.gridx = 0;
+		constraints.gridy = 1;
+		buttonThree.setCoordinate(0, 1);
+		this.add(buttonThree, constraints);
 
-        }
-    }
+		// buttonFour
+		constraints.gridx = 1;
+		buttonFour.setCoordinate(1, 1);
+		this.add(buttonFour, constraints);
+	}
 
+	public static int ButtonSizeCalc(int windowSize) {
+		return windowSize / 2;
+	}
 
-    public void intiButton(){
-        buttonOne = new GWindowButton(buttonSize);
-        buttonTwo = new GWindowButton(buttonSize);
-        buttonThree = new GWindowButton(buttonSize);
-        buttonFour = new GWindowButton(buttonSize);
-    }
+	public int getButtonSize() {
+		return buttonSize;
+	}
 
-    public void initButtonsFromContainer(){
-        buttonOne = buttonContainer.get(0);
-        buttonTwo = buttonContainer.get(1);
-        buttonThree = buttonContainer.get(2);
-        buttonFour = buttonContainer.get(3);
-    }
+	// A Point interfész implementálása.
+	@Override
+	public void setRow(int row) {
+		this.row = row;
+	}
 
+	@Override
+	public void setColumn(int column) {
+		this.column = column;
+	}
 
-    public void setButtonsPosition(){
-        GridBagConstraints constraints = new GridBagConstraints();
-        constraints.anchor = GridBagConstraints.WEST;
-        constraints.insets = new Insets(0, 0, 0, 0);
+	@Override
+	public int getRow() {
+		return row;
+	}
 
-        //buttonOne
-        constraints.gridx = 0;
-        constraints.gridy = 0;
-        buttonOne.setCoordinate(0, 0);
-        this.add(buttonOne, constraints);
+	@Override
+	public int getColumn() {
+		return column;
+	}
 
-        //buttonTwo
-        constraints.gridx = 1;
-        buttonTwo.setCoordinate(1, 0);
-        this.add(buttonTwo, constraints);
+	public void setCoordinate(int row, int column) {
+		this.row = row;
+		this.column = column;
+	}
 
-        //buttonThree
-        constraints.gridx = 0;
-        constraints.gridy = 1;
-        buttonThree.setCoordinate(0, 1);
-        this.add(buttonThree, constraints);
+	// A VisualButtonContainer implementálása.
+	@Override
+	public void setButtonContainer() {
+		buttonContainer = new Vector<>(4);
 
-        //buttonFour
-        constraints.gridx = 1;
-        buttonFour.setCoordinate(1, 1);
-        this.add(buttonFour, constraints);
-    }
+		addButton(buttonOne);
+		addButton(buttonTwo);
+		addButton(buttonThree);
+		addButton(buttonFour);
+	}
 
-    public static int ButtonSizeCalc(int windowSize){
-        return windowSize/2;
-    }
+	@Override
+	public void addButton(GWindowButton button) {
+		buttonContainer.add(button);
+	}
 
-    public int getButtonSize(){
-        return buttonSize;
-    }
+	@Override
+	public GWindowButton getButton(int index) {
+		return buttonContainer.get(index);
+	}
 
-
-
-    //A Point interfész implementálása.
-    @Override
-    public void setRow(int row) {
-        this.row = row;
-    }
-
-    @Override
-    public void setColumn(int column) {
-        this.column = column;
-    }
-
-    @Override
-    public int getRow() {
-        return row;
-    }
-
-    @Override
-    public int getColumn() {
-        return column;
-    }
-
-    public void setCoordinate(int row, int column){
-        this.row = row;
-        this.column = column;
-    }
-
-
-
-    //A VisualButtonContainer implementálása.
-    @Override
-    public void setButtonContainer(){
-        buttonContainer = new Vector<>(4);
-
-        addButton(buttonOne);
-        addButton(buttonTwo);
-        addButton(buttonThree);
-        addButton(buttonFour);
-    }
-
-    @Override
-    public void addButton(GWindowButton button){
-        buttonContainer.add(button);
-    }
-
-    @Override
-    public GWindowButton getButton(int index){
-        return buttonContainer.get(index);
-    }
-
-    @Override
-    public int getContainerSize(){
-        return buttonContainer.size();
-    }
+	@Override
+	public int getContainerSize() {
+		return buttonContainer.size();
+	}
 
 	/**
 	 * @return the buttonOne
@@ -235,7 +225,6 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
 		return buttonOne;
 	}
 
-
 	/**
 	 * @return the buttonTwo
 	 */
@@ -243,14 +232,12 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
 		return buttonTwo;
 	}
 
-
 	/**
 	 * @return the buttonThree
 	 */
 	public GWindowButton getButtonThree() {
 		return buttonThree;
 	}
-
 
 	/**
 	 * @return the buttonFour
@@ -260,4 +247,3 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
 	}
 
 }
-

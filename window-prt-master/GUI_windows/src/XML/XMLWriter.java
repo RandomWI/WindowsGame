@@ -30,10 +30,7 @@ public class XMLWriter {
 
 		Window fluffyWindow = new Window();
 		Vector<Button> buttonContainer;
-		Button one;
-		Button two;
-		Button three;
-		Button four;
+	
 
 		int end = 0;
 
@@ -43,11 +40,19 @@ public class XMLWriter {
 			Document doc = documentBuilder.newDocument();
 
 			Element rootElement = doc.createElement("Container");
+			Attr attrFin = doc.createAttribute("finisedGame");
+			attrFin.setValue(container.getPressCounter() + "");
+
+			rootElement.setAttributeNode(attrFin);
 			doc.appendChild(rootElement);
 
 			int index;
 			for (int i = 0; i < container.size(); i++) {
-
+				Button one = new Button();
+				Button two = new Button();
+				Button three = new Button();
+				Button four = new Button();
+				
 				index = 0;
 				fluffyWindow = container.getWindow(i);
 				buttonContainer = fluffyWindow.getButtonContainer();
@@ -59,7 +64,7 @@ public class XMLWriter {
 				three = buttonContainer.get(index);
 				index++;
 				four = buttonContainer.get(index);
-
+System.out.println(one.isPreState());
 				Element Window = doc.createElement("Window");
 				rootElement.appendChild(Window);
 
@@ -88,6 +93,9 @@ public class XMLWriter {
 				attrColBT1.setValue(one.getColumn() + "");
 				Attr attrActiveBT1 = doc.createAttribute("ACTIVE");
 				attrActiveBT1.setValue(one.isPressed() + "");
+				Attr attrActiveBT1_2 = doc.createAttribute("PRESTATE");
+				attrActiveBT1_2.setValue(one.isPreState() + "");
+				System.out.println(one.isPreState());
 
 				Attr attrRowBT2 = doc.createAttribute("ROW");
 				attrRowBT2.setValue(two.getRow() + "");
@@ -95,6 +103,8 @@ public class XMLWriter {
 				attrColBT2.setValue(two.getColumn() + "");
 				Attr attrActiveBT2 = doc.createAttribute("ACTIVE");
 				attrActiveBT2.setValue(two.isPressed() + "");
+				Attr attrActiveBT2_2 = doc.createAttribute("PRESTATE");
+				attrActiveBT2_2.setValue(two.isPreState() + "");
 
 				Attr attrRowBT3 = doc.createAttribute("ROW");
 				attrRowBT3.setValue(three.getRow() + "");
@@ -102,6 +112,8 @@ public class XMLWriter {
 				attrColBT3.setValue(three.getColumn() + "");
 				Attr attrActiveBT3 = doc.createAttribute("ACTIVE");
 				attrActiveBT3.setValue(three.isPressed() + "");
+				Attr attrActiveBT3_2 = doc.createAttribute("PRESTATE");
+				attrActiveBT3_2.setValue(three.isPreState() + "");
 
 				Attr attrRowBT4 = doc.createAttribute("ROW");
 				attrRowBT4.setValue(four.getRow() + "");
@@ -109,22 +121,28 @@ public class XMLWriter {
 				attrColBT4.setValue(four.getColumn() + "");
 				Attr attrActiveBT4 = doc.createAttribute("ACTIVE");
 				attrActiveBT4.setValue(four.isPressed() + "");
+				Attr attrActiveBT4_2 = doc.createAttribute("PRESTATE");
+				attrActiveBT4_2.setValue(four.isPreState() + "");
 
 				ButtonOne.setAttributeNode(attrRowBT1);
 				ButtonOne.setAttributeNode(attrColBT1);
 				ButtonOne.setAttributeNode(attrActiveBT1);
+				ButtonOne.setAttributeNode(attrActiveBT1_2);
 
 				ButtonTwo.setAttributeNode(attrRowBT2);
 				ButtonTwo.setAttributeNode(attrColBT2);
 				ButtonTwo.setAttributeNode(attrActiveBT2);
+				ButtonTwo.setAttributeNode(attrActiveBT2_2);
 
 				ButtonThree.setAttributeNode(attrRowBT3);
 				ButtonThree.setAttributeNode(attrColBT3);
 				ButtonThree.setAttributeNode(attrActiveBT3);
+				ButtonThree.setAttributeNode(attrActiveBT3_2);
 
 				ButtonFour.setAttributeNode(attrRowBT4);
 				ButtonFour.setAttributeNode(attrColBT4);
 				ButtonFour.setAttributeNode(attrActiveBT4);
+				ButtonFour.setAttributeNode(attrActiveBT4_2);
 
 				Window.appendChild(ButtonOne);
 				Window.appendChild(ButtonTwo);

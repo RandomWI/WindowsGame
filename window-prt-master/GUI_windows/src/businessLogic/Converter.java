@@ -29,7 +29,7 @@ public class Converter {
 
         modified.setRow(visualButton.getRow());
         modified.setColumn(visualButton.getColumn());
-
+        modified.setPreState(visualButton.isHidePressed());
         modified.setPressed(visualButton.isPressed());
 
         return modified;
@@ -60,7 +60,7 @@ public class Converter {
 
         modified.setRow(button.getRow());
         modified.setColumn(button.getColumn());
-
+        modified.setHidePressed(button.isPreState());
         modified.setPressed(button.isPressed());
 
         return modified;

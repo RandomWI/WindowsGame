@@ -41,11 +41,15 @@ public class CreateTableClassFromXml {
 			doc.getDocumentElement().normalize();
 
 			System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
-
+			NodeList contItem = doc.getElementsByTagName("Container");
+			
+			table.setPressCounter(Integer.parseInt(contItem.item(0).getAttributes().item(0).getNodeValue()));
 			NodeList nodeList = doc.getElementsByTagName("Window");
 			System.out.println(nodeList.item(0).getAttributes().item(0).getNodeName());
 			System.out.println(nodeList.item(0).getAttributes().item(1).getNodeName());
 			System.out.println(nodeList.item(0).getAttributes().item(2).getNodeName());
+		
+			
 			System.out.println(nodeList.item(3).getNodeValue());
 			// NodeList list = ((Document) nodeList).getElementsByTagName("Button");
 
@@ -98,9 +102,15 @@ public class CreateTableClassFromXml {
 	}
 
 	private static Button getButton(Node node, Button but) {
+		System.out.println(node.getAttributes().item(0).getNodeName());
+		System.out.println(node.getAttributes().item(1).getNodeName());
+		System.out.println(node.getAttributes().item(2).getNodeName());
+		System.out.println(node.getAttributes().item(3).getNodeName());
+		
 		but.setPressed(Boolean.parseBoolean(node.getAttributes().item(0).getNodeValue()));
+		but.setPreState(Boolean.parseBoolean(node.getAttributes().item(2).getNodeValue()));
 		but.setColumn(Integer.parseInt(node.getAttributes().item(1).getNodeValue()));
-		but.setRow(Integer.parseInt(node.getAttributes().item(2).getNodeValue()));
+		but.setRow(Integer.parseInt(node.getAttributes().item(3).getNodeValue()));
 		return but;
 	}
 
