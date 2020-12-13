@@ -28,10 +28,6 @@ public class CreateTableClassFromXml {
 
 	public Table TableCreator(Document doc) throws IOException {
 
-		//String filePath = filename;
-		//File xmlFile = new File(filePath);
-		//DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-		//DocumentBuilder dBuilder;
 		Vector<Button> buttonContainer;
 		Table table = new Table();
 		Window window;
@@ -42,8 +38,6 @@ public class CreateTableClassFromXml {
 		Button four;
 
 		try {
-			//dBuilder = dbFactory.newDocumentBuilder();
-			//Document doc = dBuilder.parse(xmlFile);
 			doc.getDocumentElement().normalize();
 
 			System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
@@ -104,11 +98,9 @@ public class CreateTableClassFromXml {
 	}
 
 	private static Button getButton(Node node, Button but) {
-
 		but.setPressed(Boolean.parseBoolean(node.getAttributes().item(0).getNodeValue()));
 		but.setColumn(Integer.parseInt(node.getAttributes().item(1).getNodeValue()));
 		but.setRow(Integer.parseInt(node.getAttributes().item(2).getNodeValue()));
-
 		return but;
 	}
 

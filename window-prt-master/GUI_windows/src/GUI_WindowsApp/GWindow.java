@@ -3,6 +3,7 @@ package GUI_WindowsApp;
 
 import Abstract.Point;
 import Abstract.VisualButtonContainer;
+import businessLogic.Table;
 import businessLogic.Window;
 
 import javax.swing.*;
@@ -32,6 +33,7 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
 
     private int buttonSize;
     private int activeButton = 0;
+    Table guard = new Table();
 
 
     public GWindow(Vector<GWindowButton> buttons, int windowSize){
@@ -81,17 +83,20 @@ public class GWindow extends JPanel implements Point, VisualButtonContainer{
         //A gombnyomások hatását kezeli.
         public void ButtonAction(GWindowButton button){
 
+        	
             if(activeButton < 2){
                 if(!button.isPressed()){
                     button.buttonPress();
                     button.setBackground(Color.YELLOW);
                     activeButton++;
+                    guard.morePush(true);
                     //System.out.println(activeButton);
                 }
                 else{
                     button.buttonPress();
                     button.setBackground(Color.WHITE);
                     activeButton--;
+                    guard.morePush(false);
                     //System.out.println(activeButton);
                 }
             }

@@ -18,6 +18,8 @@ public class Button implements Point, Pressable {
         setRow(row);
         setColumn(column);
     }
+    
+   
 
     //A Pressable interfész implementálása.
     @Override

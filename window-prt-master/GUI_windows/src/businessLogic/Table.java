@@ -17,8 +17,10 @@ import XML.XMLWriter;
 import Server.Insert;
 import Server.SelectState;
 
-public class Table {
 
+public class Table {
+	int szamok = 0;
+	
 	private int index;
     private Vector<Window> windows;
     int counter=0;
@@ -58,6 +60,19 @@ public class Table {
 	public void setIndex(int index) {
 		this.index = index;
 	}
+	
+	 public void morePush(Boolean item)
+	    {
+		 if(item)
+	    szamok++;	
+		 else {
+			 szamok--;
+		 }
+		 System.out.println(szamok);
+		 if(szamok==windows.size()*2) {
+			 System.out.println("The num: "+szamok);
+		 }
+	    }
 	
 	public void save(Table container,String filename){
 	writer.Write(container,filename);

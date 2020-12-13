@@ -7,7 +7,8 @@ import java.awt.*;
 
 public class GameFrame extends JFrame{
 
-
+	public static int osszLepes;
+	
     private SizePanel sizePanel;
     private PlayGround playGround;
     private ButtonBar buttonBar;

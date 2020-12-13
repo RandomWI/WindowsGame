@@ -145,7 +145,7 @@ public class Window implements Point, BasicButtonContainer {
 
 	// megvizsgálja az előző Window itemet és vissza adja a lehetséges következő
 	// lépéseket
-	public String[] checkerLastWindow(Boolean rightSideScope, GWindow last) {
+	/*public String[] checkerLastWindow(Boolean rightSideScope, GWindow last) {
 		String[] result = null;
 		if (rightSideScope) {
 			if (last.getButtonTwo().isHidePressed() == true && last.getButtonFour().isHidePressed() == false) {
@@ -179,7 +179,7 @@ public class Window implements Point, BasicButtonContainer {
 		}
 
 		return result;
-	}
+	}*/
 
 	public void buttonPusher(GWindow item, String avaibleSides) {
 
@@ -187,26 +187,18 @@ public class Window implements Point, BasicButtonContainer {
 		case "up":
 			item.getButtonOne().setHidePressed(true);
 			item.getButtonTwo().setHidePressed(true);
-			item.getButtonOne().setBackground(Color.GREEN);
-			item.getButtonTwo().setBackground(Color.GREEN);
 			break;
 		case "right":
 			item.getButtonTwo().setHidePressed(true);
 			item.getButtonFour().setHidePressed(true);
-			item.getButtonTwo().setBackground(Color.GREEN);
-			item.getButtonFour().setBackground(Color.GREEN);
 			break;
 		case "left":
 			item.getButtonOne().setHidePressed(true);
 			item.getButtonThree().setHidePressed(true);
-			item.getButtonOne().setBackground(Color.GREEN);
-			item.getButtonThree().setBackground(Color.GREEN);
 			break;
 		case "down":
 			item.getButtonThree().setHidePressed(true);
 			item.getButtonFour().setHidePressed(true);
-			item.getButtonThree().setBackground(Color.GREEN);
-			item.getButtonFour().setBackground(Color.GREEN);
 			break;
 		}
 	}
